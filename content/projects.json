@@ -1,0 +1,586 @@
+{
+  "profile": {
+    "name": "张健航",
+    "age": 25,
+    "education": "计算机应用技术专业毕业",
+    "role": "AI 产品经理",
+    "intro": "关注 AI 产品如何从一个想法，变成可以理解、使用和验证的工具。这里整理我的个人项目、开源定制与产品实践。",
+    "contact": {
+      "label": "在 GitHub 联系我",
+      "github": "https://github.com/z2302743489"
+    },
+    "bioSource": "姓名、年龄、专业与职业由本人提供；未补写学校、任职单位、从业年限或客户经历。"
+  },
+  "projects": [
+    {
+      "slug": "zhixu",
+      "repo": "zhixu-knowledge-platform",
+      "name": "知序 · 企业知识库",
+      "category": "知识管理 / AI 问答",
+      "kind": "个人项目",
+      "description": "一个管理企业文档并提供带来源引用的 AI 问答的网站，可在本机或内网部署试用。",
+      "summary": "把文档管理、检索、回答与引用回查连在同一个流程里，让使用者可以从答案回到原始资料。",
+      "audience": "需要集中维护内部资料的知识库管理人员，以及希望快速查找制度与业务信息的员工。",
+      "pain": "资料散落在不同文档里，找到一段回答以后，还需要确认它来自哪份文件、哪个版本。",
+      "features": [
+        {
+          "title": "文档入库与版本管理",
+          "detail": "管理知识库、上传文档、检查解析分块，支持去重、替换版本与停用。"
+        },
+        {
+          "title": "检索后回答",
+          "detail": "组合向量检索、中文稀疏检索与可选重排，助手可以关联多个知识库并流式回答。"
+        },
+        {
+          "title": "引用回查",
+          "detail": "回答引用保存文档版本与片段快照，同时记录调用日志，方便核对答案依据。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "引用保留版本快照",
+          "detail": "资料更新后仍能回看当时的回答依据；可追溯不等于回答一定正确。"
+        },
+        {
+          "title": "分别配置模型能力",
+          "detail": "LLM、Embedding 与 Rerank 独立配置，便于调整检索与生成环节，也增加了部署配置项。"
+        },
+        {
+          "title": "先限定试用边界",
+          "detail": "当前角色切换用于体验，没有登录认证；试用范围限定在本机或受控内网。"
+        }
+      ],
+      "status": "代码已公开 · 面向本机与受控内网试用",
+      "evidence": [
+        {
+          "label": "项目与技术说明",
+          "detail": "README 说明文档管理、检索链路、引用机制与当前验证边界。",
+          "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/README.md"
+        },
+        {
+          "label": "公开演示资料",
+          "detail": "employee-policy.md 明确标注为虚构资料，可直接核对年假、设备与学习支持的原文。",
+          "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/examples/employee-policy.md"
+        },
+        {
+          "label": "验收入口",
+          "detail": "测试与验收文档说明检索、引用和服务配置的检查方法。",
+          "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/docs/TESTING.md"
+        }
+      ],
+      "attribution": "张健航的个人项目，使用 LangChain、Qdrant 等开源组件。",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Ant Design",
+        "FastAPI",
+        "LangChain",
+        "Qdrant",
+        "SQLite / PostgreSQL",
+        "Celery / Redis"
+      ],
+      "demoType": "knowledge",
+      "demoIntro": "选择一个问题，查看依据公开员工制度示例预先整理的答案，再展开原文和行号。",
+      "demoLimit": "这是基于公开虚构制度的预置问答，不连接模型。实际项目支持文档检索与模型配置；当前无登录认证，适合本机或受控内网试用。",
+      "links": {
+        "repo": "https://github.com/z2302743489/zhixu-knowledge-platform"
+      }
+    },
+    {
+      "slug": "launch-kit",
+      "repo": "idea-to-launch-kit",
+      "name": "想法到上线 · 技术手册",
+      "category": "产品开发 / 交付流程",
+      "kind": "上游工具包整理",
+      "description": "一套面向非技术产品经理的中文开发手册、PRD 模板与验收脚本，用六个阶段组织 AI 编码工具的工作。",
+      "summary": "从补齐需求开始，把技术方案、开发、界面、上线和收尾拆成有交付物、有人工核对的阶段。",
+      "audience": "使用 Mac、希望借助编码 AI 完成网页 MVP 的非技术产品经理与学生。",
+      "pain": "有想法却不知道如何开始，也难以判断 AI 所说的完成是否有文件、测试与可操作的结果支撑。",
+      "features": [
+        {
+          "title": "六阶段路线",
+          "detail": "按 PRD 体检、技术适配、后端 MVP、正式前端、上线、收尾推进。"
+        },
+        {
+          "title": "业务验收清单",
+          "detail": "每阶段写清需要本人回答或确认的事项，包括需求范围、真实生成结果与可用页面。"
+        },
+        {
+          "title": "证据与模板",
+          "detail": "提供原始 PRD 模板，并要求交付截图、访问步骤、是否表、自检输出与模型冒烟记录。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "把判断留给人",
+          "detail": "需求优先级、结果是否可接受、额外支出等事项需要人工确认，不能仅凭 AI 自述进入下一阶段。"
+        },
+        {
+          "title": "把进度写入文件",
+          "detail": "项目状态与阶段资料保存在目录中，便于中断后继续，或切换编码工具。"
+        },
+        {
+          "title": "以证据核对交付",
+          "detail": "用阶段产物和自检输出辅助验收，将真实模型调用记录与模拟结果分别记录。"
+        }
+      ],
+      "status": "手册与脚本已公开 · 本站提供流程导览",
+      "evidence": [
+        {
+          "label": "原始操作手册",
+          "detail": "阶段顺序、人工检查项与证据包要求取自这份公开手册。",
+          "url": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/开始看这里.md"
+        },
+        {
+          "label": "原始 PRD 模板",
+          "detail": "本站保留模板原文，署名与适用提醒单列在来源说明中。",
+          "url": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/docs/PRD模板.md"
+        },
+        {
+          "label": "原作者许可",
+          "detail": "工具包、手册和模板保留 hubooooooo 的 MIT 署名。",
+          "url": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/LICENSE"
+        }
+      ],
+      "attribution": "整理自 hubooooooo 的开发工具包（MIT，2025），保留原作者署名与许可。本站提供流程导览和模板下载。",
+      "stack": [
+        "Markdown",
+        "Shell",
+        "PRD 模板",
+        "阶段验收脚本",
+        "编码 AI 工具"
+      ],
+      "demoType": "launch",
+      "demoIntro": "依次查看 0—5 阶段，了解每一步需要人核对什么、预计交付什么，并下载原始 PRD 模板。",
+      "demoLimit": "固定流程导览，不执行脚本、调用模型或部署服务。原文中的价格、额度和上线条件需使用前重新核对。",
+      "links": {
+        "repo": "https://github.com/z2302743489/idea-to-launch-kit"
+      }
+    },
+    {
+      "slug": "model-atlas",
+      "repo": "ai-model-atlas",
+      "name": "模型全景 · AI Model Atlas",
+      "category": "模型资料 / 信息组织",
+      "kind": "个人项目",
+      "description": "一个汇总国内外主流大模型的网站，可集中查看模型介绍、功能特点、榜单资料、价格和使用额度。",
+      "summary": "把分散的模型资料放进可查找、可比较的页面，同时保留资料日期、来源和未知字段。",
+      "audience": "需要初步了解不同模型及使用方案的产品经理、开发者和 AI 工具使用者。",
+      "pain": "介绍、榜单与计费方式散落在不同页面，信息更新时间和指标口径也常不一致。",
+      "features": [
+        {
+          "title": "搜索与筛选",
+          "detail": "按品牌、型号与使用场景查找，视图与筛选条件可通过 URL 哈希恢复。"
+        },
+        {
+          "title": "资料对比",
+          "detail": "集中查看模型特点、使用方案与分类榜摘录，保留各自的指标与更新日期。"
+        },
+        {
+          "title": "同源数据下载",
+          "detail": "页面与下载文件由同一组 JSON 生成，便于回查与后续维护。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "静态生成",
+          "detail": "页面不依赖后端与 API 密钥，代价是信息需要人工核验和更新。"
+        },
+        {
+          "title": "未知就保留未知",
+          "detail": "未公开价格或额度留空并说明，不将缺失资料当作免费或无限使用。"
+        },
+        {
+          "title": "保留榜单口径",
+          "detail": "不同分类榜不合成跨榜总排名，模型、排名与套餐分别保留核验日期。"
+        }
+      ],
+      "status": "静态网站源码已公开 · 资料为人工核验快照",
+      "evidence": [
+        {
+          "label": "项目说明",
+          "detail": "README 记录静态构建、搜索对比、数据更新和使用边界。",
+          "url": "https://github.com/z2302743489/ai-model-atlas/blob/main/README.md"
+        },
+        {
+          "label": "模型数据入口",
+          "detail": "README 指定该文件保存模型资料、核验日期与来源；本站未重新核验其中实时数据。",
+          "url": "https://github.com/z2302743489/ai-model-atlas/blob/main/src/data/models.json"
+        },
+        {
+          "label": "第三方资料归属",
+          "detail": "第三方品牌、图标、榜单和素材各自保留原来源与使用条款。",
+          "url": "https://github.com/z2302743489/ai-model-atlas/blob/main/THIRD_PARTY_NOTICES.md"
+        }
+      ],
+      "attribution": "张健航的公开个人项目。README 说明页面按参考布局重新实现；品牌、图标、榜单及资料仍归各权利人与来源所有。",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "静态 JSON",
+        "GitHub Pages"
+      ],
+      "demoType": "atlas",
+      "demoIntro": "直接体验模型全景网页，试着搜索、筛选模型，或打开对比视图。",
+      "demoLimit": "嵌入项目的实际静态网页。资料快照为 2026-11-06，报价、额度与排名请以原始来源的最新信息为准。",
+      "links": {
+        "repo": "https://github.com/z2302743489/ai-model-atlas"
+      }
+    },
+    {
+      "slug": "grok-fat",
+      "repo": "Grok-fat",
+      "name": "Grok fat · 个人 Agent 桌面版",
+      "category": "桌面 Agent / 体验定制",
+      "kind": "开源项目定制",
+      "description": "一个基于 OpenMausBot 修改的个人 AI Agent 桌面版，支持连接模型、协作处理任务，并使用六款 Fat 主题头像。",
+      "summary": "在保留上游 Agent 工作能力的基础上，统一角色形象与个人使用体验，清理原有品牌推广入口。",
+      "audience": "希望在桌面上配置自己的模型，并以多个机器人处理对话、文件与工具任务的个人使用者。",
+      "pain": "通用桌面 Agent 的形象与推广入口不一定符合个人习惯，多处头像与旧配置也需要保持一致。",
+      "features": [
+        {
+          "title": "六款统一头像",
+          "detail": "果冻、弹弹、困困、吃货、国王和太空胖胖用于聊天、侧边栏与资料页。"
+        },
+        {
+          "title": "个人工作方式",
+          "detail": "沿用上游多机器人、团队任务、文件与工具调用能力，实际能力依赖配置的模型与服务。"
+        },
+        {
+          "title": "本地动画与偏好",
+          "detail": "头像使用本地呼吸、弹跳、摇晃和漂浮动画，支持保存选择及减少动态效果。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "明确上游归属",
+          "detail": "基于 OpenMausBot 0.1.143 定制，保留许可、NOTICE 与修改记录，不将上游 Agent 能力归为独立原创。"
+        },
+        {
+          "title": "兼容旧头像设置",
+          "detail": "旧内置头像回退到 Fat 主题，同时保留用户上传图片的使用方式。"
+        },
+        {
+          "title": "独立个人版身份",
+          "detail": "桌面设置与数据目录采用个人版命名，源码服务仍需按说明显式指定数据目录。"
+        }
+      ],
+      "status": "个人定制源码已公开 · README 记录 macOS Apple silicon 验证",
+      "evidence": [
+        {
+          "label": "定制内容与边界",
+          "detail": "README 列出 Fat 头像、品牌清理、平台验证范围和安全加固事项。",
+          "url": "https://github.com/z2302743489/Grok-fat/blob/main/README.md"
+        },
+        {
+          "label": "上游项目",
+          "detail": "原始 Agent 平台来自 milind-soni/OpenMausBot。",
+          "url": "https://github.com/milind-soni/OpenMausBot"
+        },
+        {
+          "label": "修改记录入口",
+          "detail": "README 指向定制修改记录，便于继续核对改版范围。",
+          "url": "https://github.com/z2302743489/Grok-fat/blob/main/GROK_FAT_CHANGES.txt"
+        }
+      ],
+      "attribution": "基于 milind-soni/OpenMausBot 0.1.143 的个人定制版，开源核心沿用 Apache-2.0 并保留上游声明。与 xAI/Grok 官方及上游无官方隶属关系；头像素材由 imagegen 生成。",
+      "stack": [
+        "OpenMausBot",
+        "Node.js",
+        "pnpm",
+        "MCP",
+        "Fat 主题头像",
+        "本地动画"
+      ],
+      "demoType": "avatars",
+      "demoIntro": "切换六款 Fat 形象，体验头像选择与动态风格。",
+      "demoLimit": "预览六款真实头像与动态风格，不连接模型或 Agent。桌面界面为项目的隔离测试截图。",
+      "links": {
+        "repo": "https://github.com/z2302743489/Grok-fat"
+      }
+    },
+    {
+      "slug": "cash",
+      "repo": "cash.ai",
+      "name": "cash.ai · AI 游戏创作",
+      "category": "AI 创作 / 桌面工具",
+      "kind": "基于上游项目定制",
+      "description": "一款用 AI 辅助制作游戏的桌面软件，输入玩法描述后，可辅助生成代码和素材，并在软件内试玩。",
+      "summary": "围绕输入创意、规划、实现、审查和试玩反馈组织制作流程，同时调整品牌与深浅色创作界面。",
+      "audience": "想验证游戏创意的创作者、游戏策划与独立开发者。",
+      "pain": "生成代码后仍要面对构建失败、素材缺失和无法试玩的问题，需要把检查与修复接进创作过程。",
+      "features": [
+        {
+          "title": "描述玩法与添加参考",
+          "detail": "输入游戏创意、附上图片或文件，完成账户及素材能力配置后进入制作。"
+        },
+        {
+          "title": "规划、实现与审查",
+          "detail": "应用调度不同角色完成任务；修复有轮数上限，避免没有终点的反复尝试。"
+        },
+        {
+          "title": "构建后试玩",
+          "detail": "支持 Web 或 Godot 路线，通过本地预览、自动试玩和证据复核辅助交付。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "调度由应用控制",
+          "detail": "由应用限定角色职责和修复轮数，减少任务失控与无休止重试。"
+        },
+        {
+          "title": "先检查再交付",
+          "detail": "正式构建与试玩结果参与验收，AI 的完成声明不能单独代表游戏已经可用。"
+        },
+        {
+          "title": "保留上游历史",
+          "detail": "品牌与体验调整不改变原始作者归属；上游尚未提供明确许可证。"
+        }
+      ],
+      "status": "macOS 开发者预览版 · 基于上游项目定制",
+      "evidence": [
+        {
+          "label": "功能与当前状态",
+          "detail": "README 说明制作流程、技术栈和未提供签名公证安装包的状态。",
+          "url": "https://github.com/z2302743489/cash.ai/blob/main/README.md"
+        },
+        {
+          "label": "上游归属说明",
+          "detail": "UPSTREAM.md 明确标注 Innate-Labs 原作者归属、提交历史与许可现状。",
+          "url": "https://github.com/z2302743489/cash.ai/blob/main/UPSTREAM.md"
+        },
+        {
+          "label": "原作者组织",
+          "detail": "上游组织由项目归属说明公开链接，不将 fork 视作独立原创。",
+          "url": "https://github.com/Innate-Labs"
+        }
+      ],
+      "attribution": "基于 Innate-Labs 的游戏创作桌面项目进行品牌与体验调整，保留上游提交历史和作者归属。上游未提供明确许可证，使用源码时请查阅仓库归属说明。",
+      "stack": [
+        "Electron",
+        "React",
+        "TypeScript",
+        "Vite",
+        "Codex App Server",
+        "Web",
+        "Godot 4 / GDScript"
+      ],
+      "demoType": "game",
+      "demoIntro": "切换查看桌面界面，沿着创意、规划、检查与试玩了解制作流程。",
+      "demoLimit": "界面截图与固定流程导览，不执行 AI 制作。接星星是本站单独制作的玩法示意；实际游戏生成需在桌面软件中配置账户与相关服务。",
+      "links": {
+        "repo": "https://github.com/z2302743489/cash.ai"
+      }
+    },
+    {
+      "slug": "boxing",
+      "repo": "boxing-pose-analysis",
+      "name": "拳击动作与重心分析",
+      "category": "运动分析 / 计算机视觉",
+      "kind": "个人探索项目",
+      "description": "一个分析手机训练视频的 Python 工具，可提取二维骨架、估算身体重心、检测出拳，并生成慢放标注视频。",
+      "summary": "尝试把肉眼不易看清的重心移动与躯干倾斜转成图表和视频标注，作为训练复盘的参考。",
+      "audience": "想复盘动作的业余拳击与健身爱好者，以及希望补充视频观察工具的教练。",
+      "pain": "普通训练视频容易看见动作形态，却不容易逐拳比较身体重心、躯干角度和脚下支撑。",
+      "features": [
+        {
+          "title": "骨架与重心叠加",
+          "detail": "基于 Sports2D / RTMPose 提取关节点，以人体参数表加权估算重心并画出支撑范围。"
+        },
+        {
+          "title": "逐拳分析",
+          "detail": "检测出拳，结合站架区分刺拳与后手直拳，输出重心转移及相关运动指标。"
+        },
+        {
+          "title": "慢放复盘",
+          "detail": "生成带骨架、重心轨迹和躯干倾斜标注的 0.5 倍速视频与分析图表。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "从单手机二维分析开始",
+          "detail": "降低采集门槛，同时接受深度方向与透视误差，无法直接得到可靠的三维重心。"
+        },
+        {
+          "title": "用双脚间比例表示重心",
+          "detail": "相对位置更容易理解；双脚重叠时比例无法可靠计算。"
+        },
+        {
+          "title": "限制出拳检测条件",
+          "detail": "用肩高附近的水平伸出过滤部分误检，代价是上勾拳等动作可能漏检。"
+        }
+      ],
+      "status": "个人探索原型 · 仓库展示单段空击样例",
+      "evidence": [
+        {
+          "label": "方法、取舍与局限",
+          "detail": "README 公开流程、示例观察及二维误差、遮挡和帧率限制。",
+          "url": "https://github.com/z2302743489/boxing-pose-analysis/blob/main/README.md"
+        },
+        {
+          "label": "公开慢放样例",
+          "detail": "仓库发布的单段训练标注视频，不代表完整动作类别的准确率验证。",
+          "url": "https://github.com/z2302743489/boxing-pose-analysis/releases/download/v0.1/shadowboxing_slowmo_CoM.mp4"
+        },
+        {
+          "label": "姿态提取组件",
+          "detail": "Sports2D 是姿态与角度提取的上游组件。",
+          "url": "https://github.com/davidpagnon/Sports2D"
+        }
+      ],
+      "attribution": "张健航的公开个人探索项目，基于 Sports2D、RTMPose / rtmlib 等组件，并参考 freemocap 与 Winter 人体参数方法；这些基础方法与组件归原作者。",
+      "stack": [
+        "Python",
+        "Sports2D",
+        "RTMPose / rtmlib",
+        "ffmpeg",
+        "二维关节点",
+        "Winter 人体参数表"
+      ],
+      "demoType": "boxing",
+      "demoIntro": "播放项目公开的骨架与重心标注片段，也可以打开完整慢放视频和分析图表。",
+      "demoLimit": "使用已发布的真实分析素材，不在网页上分析新视频。二维重心为估算，结果会受到拍摄角度、遮挡与帧率影响。",
+      "links": {
+        "repo": "https://github.com/z2302743489/boxing-pose-analysis"
+      }
+    },
+    {
+      "slug": "notes",
+      "repo": "class-notes-digest",
+      "name": "课堂纪要拆解",
+      "category": "学习工具 / Skill",
+      "kind": "个人课程作业项目",
+      "description": "一个把课堂转写稿或群聊整理为结构化笔记的 Skill，提供标准纪要和考试复习两种输出方式。",
+      "summary": "把知识点、强调内容、作业、截止信息和疑问分开整理，让复习时更容易回到原文。",
+      "audience": "需要整理网课、录播、课堂群记录，以及准备课程复习的学生。",
+      "pain": "原始记录长且零散，作业要求、截止时间与课堂重点混在一起，临近复习时难以快速定位。",
+      "features": [
+        {
+          "title": "标准纪要",
+          "detail": "按主题、知识点、强调与易错、作业、待办、疑问和自测整理材料。"
+        },
+        {
+          "title": "考试复习",
+          "detail": "以考点提示、必背清单、易混对比和自测题组织复习，不能凭空补出考试占比。"
+        },
+        {
+          "title": "保留不确定项",
+          "detail": "输入未明确的信息需要标明，原文短引与锚点用于回查。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "使用已有文字输入",
+          "detail": "不自动调用语音转写服务，先接收用户提供的转写稿、群聊或速记。"
+        },
+        {
+          "title": "两种结构服务不同任务",
+          "detail": "标准版便于回顾和跟进待办，复习版集中呈现对比与自测。"
+        },
+        {
+          "title": "区分原文与整理",
+          "detail": "本站为整理内容保留来源，原文未给出的 fork 作业答案与考试频率不作为课堂已知结论。"
+        }
+      ],
+      "status": "课程作业源码与示例已公开",
+      "evidence": [
+        {
+          "label": "功能与作业说明",
+          "detail": "README 明确课程作业属性、双模式输出与转写边界。",
+          "url": "https://github.com/z2302743489/class-notes-digest/blob/main/README.md"
+        },
+        {
+          "label": "原始课堂记录",
+          "detail": "演示输入来自公开的操作系统第 5 周转写样本。",
+          "url": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt"
+        },
+        {
+          "label": "仓库原始样例输出",
+          "detail": "该文件实际为考试复习版；本站展示的标准版是根据同一转写稿整理的示例。",
+          "url": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-output.md"
+        }
+      ],
+      "attribution": "张健航公开的课程作业项目，README 标注 MIT。本站的标准纪要与精简复习版是基于公开转写稿整理的固定演示，原始 sample-output 单独保留。",
+      "stack": [
+        "Markdown",
+        "Skill 指令",
+        "结构化笔记",
+        "HTML 产品介绍页"
+      ],
+      "demoType": "notes",
+      "demoIntro": "对照同一段课堂转写，切换标准纪要与复习示例，查看知识点和作业如何被整理出来。",
+      "demoLimit": "根据同一份公开转写稿整理的固定示例，不调用模型或转写音频。原文没有讲解的作业答案保留为待补充。",
+      "links": {
+        "repo": "https://github.com/z2302743489/class-notes-digest"
+      }
+    },
+    {
+      "slug": "portfolio",
+      "repo": "z2302743489.github.io",
+      "name": "张健航 · 个人作品网站",
+      "category": "个人网站 / 项目表达",
+      "kind": "个人项目",
+      "description": "一个展示个人背景、产品思考与八个公开项目的作品网站，支持独立项目介绍和交互演示。",
+      "summary": "从概念展示页扩展为可以逐项了解项目用途、产品取舍、原作归属与验证边界的作品集。",
+      "audience": "希望了解张健航项目实践、产品思考与合作方式的访客。",
+      "pain": "只看项目名字与封面，难以判断具体做了什么、哪些是定制工作，以及演示能证明什么。",
+      "features": [
+        {
+          "title": "八个项目入口",
+          "detail": "用封面、一句话介绍与分类筛选，快速找到感兴趣的项目。"
+        },
+        {
+          "title": "独立项目详情",
+          "detail": "逐项说明用途、目标用户、功能与设计取舍，并提供源码链接和原作归属。"
+        },
+        {
+          "title": "可以体验的演示",
+          "detail": "结合实际网页、视频、固定问答和流程导览，展示每个项目如何使用。"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "先说清项目是什么",
+          "detail": "让访客从一句话理解用途，再按需阅读细节，减少抽象标签。"
+        },
+        {
+          "title": "让操作帮助理解",
+          "detail": "用可点击的实际页面或示例说明流程，同时标清示例与完整软件的关系。"
+        },
+        {
+          "title": "静态页面保持轻量",
+          "detail": "内容由 JSON 维护，直接托管在 GitHub Pages，无需账户或后端服务。"
+        }
+      ],
+      "status": "静态网站 · 支持手机浏览与深浅主题",
+      "evidence": [
+        {
+          "label": "网站源码",
+          "detail": "页面、样式、项目资料与生成脚本保存在同一仓库。",
+          "url": "https://github.com/z2302743489/z2302743489.github.io"
+        },
+        {
+          "label": "设计参考与来源",
+          "detail": "说明网站参考、媒体来源与各演示的范围。",
+          "url": "https://z2302743489.github.io/references.html"
+        }
+      ],
+      "attribution": "张健航的个人作品网站。简介由本人提供，项目资料取自公开仓库，封面为 AI 生成的项目视觉。",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "JSON 内容",
+        "固定演示素材"
+      ],
+      "demoType": "portfolio",
+      "demoIntro": "拖动宽度滑块，观察页面如何适配不同屏幕；也可以切换全站主题。",
+      "demoLimit": "此处预览使用本站真实样式与项目入口。完整网站可通过首页直接浏览。",
+      "links": {
+        "repo": "https://github.com/z2302743489/z2302743489.github.io"
+      }
+    }
+  ]
+}

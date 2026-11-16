@@ -1,0 +1,450 @@
+{
+  "knowledge": {
+    "title": "员工服务说明 · 来源问答",
+    "mode": "fixture",
+    "notice": "公开虚构资料的固定演示，不连接模型、不执行真实检索，也不代表任何企业现行制度。",
+    "source": {
+      "repo": "zhixu-knowledge-platform",
+      "file": "examples/employee-policy.md",
+      "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/examples/employee-policy.md",
+      "sha": "f2b709443db54215ef35850face46fdba395608c",
+      "lineStart": 1,
+      "lineEnd": 17
+    },
+    "sourceText": "# 项目演示：员工服务说明\n\n本文为虚构资料，仅用于验证知识导入、检索和来源引用。\n\n## 请假流程\n\n员工申请年假时，提前三天在 OA 提交申请，填写交接人，由直属负责人审批。\n紧急情况先与负责人沟通，再补交申请。\n\n## 办公设备\n\n新员工入职当天到行政前台领取办公设备，并确认资产清单。\n\n## 学习支持\n\n申请学习基金前，提交课程介绍和学习目标，审批通过后再购买课程。\n报销需提供审批记录和付款凭证。\n",
+    "questions": [
+      {
+        "id": "annual-leave",
+        "question": "年假如何申请？",
+        "answer": "提前三天在 OA 提交申请，填写交接人，由直属负责人审批。紧急情况先与负责人沟通，再补交申请。",
+        "excerpts": [
+          {
+            "text": "员工申请年假时，提前三天在 OA 提交申请，填写交接人，由直属负责人审批。\n紧急情况先与负责人沟通，再补交申请。",
+            "file": "examples/employee-policy.md",
+            "lineStart": 7,
+            "lineEnd": 8,
+            "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/examples/employee-policy.md#L7-L8"
+          }
+        ]
+      },
+      {
+        "id": "equipment",
+        "question": "新员工什么时候、去哪里领取办公设备？",
+        "answer": "入职当天到行政前台领取办公设备，并确认资产清单。",
+        "excerpts": [
+          {
+            "text": "新员工入职当天到行政前台领取办公设备，并确认资产清单。",
+            "file": "examples/employee-policy.md",
+            "lineStart": 12,
+            "lineEnd": 12,
+            "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/examples/employee-policy.md#L12-L12"
+          }
+        ]
+      },
+      {
+        "id": "learning",
+        "question": "申请学习基金和报销要准备什么？",
+        "answer": "购买课程前，先提交课程介绍和学习目标，审批通过后再购买。报销时提供审批记录和付款凭证。",
+        "excerpts": [
+          {
+            "text": "申请学习基金前，提交课程介绍和学习目标，审批通过后再购买课程。\n报销需提供审批记录和付款凭证。",
+            "file": "examples/employee-policy.md",
+            "lineStart": 16,
+            "lineEnd": 17,
+            "url": "https://github.com/z2302743489/zhixu-knowledge-platform/blob/main/examples/employee-policy.md#L16-L17"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": {
+    "title": "操作系统 · 进程与线程",
+    "mode": "fixture",
+    "notice": "同一份公开转写稿的固定整理示例，不调用模型或语音转写。截止信息保留“下周五 23:59”，不推算绝对日期。",
+    "sources": {
+      "transcript": {
+        "repo": "class-notes-digest",
+        "file": "examples/sample-transcript.txt",
+        "url": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt",
+        "sha": "ce2394b7bbc6a5774d419fd38e06aab2e5bf13ec",
+        "lineStart": 1,
+        "lineEnd": 10
+      },
+      "sampleOutput": {
+        "repo": "class-notes-digest",
+        "file": "examples/sample-output.md",
+        "url": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-output.md",
+        "sha": "4c72199d4a7e42f9e89c1922c6abc92e7a59bcd8",
+        "lineStart": 1,
+        "lineEnd": 43
+      }
+    },
+    "transcript": "[课程：操作系统 · 第5周 · 2026-10-10]\n老师：今天讲进程与线程。进程是资源分配的基本单位，线程是 CPU 调度的基本单位。\n老师：千万别混：一个进程里可以有多个线程，它们共享地址空间，但各有自己的栈。\n同学A：那全局变量线程之间能看见吗？\n老师：能，因为在同一地址空间。所以写并发要小心竞态。\n老师：作业：用伪代码描述「父进程 fork 后子进程改变量，父进程看不看得到」。下周五前交到课程平台。\n老师：期末大题爱考：进程切换和线程切换的开销对比，记得从地址空间、页表这几点答。\n同学B：DDL 是下周五还是下下周五？\n老师：下周五 23:59。\n（后面是几分钟闲聊约饭，略）\n",
+    "sampleOutput": "# 课堂纪要 · 考试复习版\n**课程**：操作系统 · 第 5 周 · 2026-10-10  \n**材料**：录音/课堂记录整理\n\n## 1. 考试雷达（本节考什么）\n- 进程 vs 线程的定义与关系 — **高频**（老师点名期末大题）\n- 地址空间共享与竞态 — **中频**（强调「写并发要小心」）\n- fork 后父子变量可见性 — **中频**（作业原题方向）\n\n## 2. 必背清单\n- 进程：资源分配的基本单位  \n- 线程：CPU 调度的基本单位  \n- 同进程多线程：共享地址空间；各有自己的栈；全局变量彼此可见  \n\n## 3. 易混对比\n\n| | 进程 | 线程 |\n|--|------|------|\n| 基本单位 | 资源分配 | CPU 调度 |\n| 地址空间 | 独立 | 同进程内共享 |\n| 切换开销 | 通常更大（涉及地址空间/页表等） | 通常更小 |\n| 全局变量 | 进程间默认不可见 | 同进程线程间可见 |\n\n## 4. 题型提示\n- 期末大题倾向：进程切换 vs 线程切换开销（从地址空间、页表等回答）\n\n## 5. 作业与必读\n- **作业**：伪代码描述「父进程 fork 后子进程改变量，父进程是否看得到」  \n- **截止**：下周五 23:59（课程平台）  \n- **阅读**：原文未明确\n\n## 6. 自测卷\n1. （简答）为何说线程共享地址空间却仍各有栈？  \n   - 参考要点：共享代码/数据等；执行流与局部调用需要独立栈  \n2. （辨析）同进程两线程改同一全局变量是否需要同步？为什么？  \n   - 参考要点：可见 + 竞态  \n3. （简答）fork 后子进程修改变量，父进程一般能否看到？  \n   - 参考要点：写时复制/独立地址空间方向（按课上口径作答）  \n4. （对比）列 3 点进程切换通常比线程切换更贵的原因。  \n5. （开放）举一个会因共享地址空间踩坑的并发例子。\n\n## 7. 仍存疑点\n- 无（DDL 已由老师确认为下周五 23:59）\n",
+    "standard": {
+      "label": "标准纪要 · 本站整理示例",
+      "origin": "illustrative",
+      "notice": "根据 sample-transcript.txt 整理；仓库 sample-output.md 实际是考试复习版，未提供标准版原始样例。",
+      "sections": [
+        {
+          "title": "主题与一句话总结",
+          "items": [
+            "操作系统第 5 周，记录标注日期为 2026-10-10。",
+            "本节讨论进程与线程、地址空间共享、竞态及切换开销的复习方向。"
+          ],
+          "sourceLines": [
+            1,
+            2,
+            3,
+            5,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L1-L7"
+        },
+        {
+          "title": "知识点",
+          "items": [
+            "进程是资源分配的基本单位；线程是 CPU 调度的基本单位。",
+            "一个进程可以有多个线程，线程共享地址空间，但各有自己的栈。",
+            "同一地址空间内，全局变量在线程间可见；并发编写需注意竞态。"
+          ],
+          "sourceLines": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L2-L5"
+        },
+        {
+          "title": "强调与易错",
+          "items": [
+            "不要混淆进程与线程的基本单位。",
+            "共享地址空间与各有自己的栈同时成立。",
+            "老师明确提示期末大题爱考进程切换和线程切换的开销对比，回答需考虑地址空间、页表。"
+          ],
+          "sourceLines": [
+            2,
+            3,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L2-L7"
+        },
+        {
+          "title": "作业与提交",
+          "items": [
+            "用伪代码描述“父进程 fork 后子进程改变量，父进程看不看得到”。",
+            "交到课程平台；截止为下周五 23:59。"
+          ],
+          "sourceLines": [
+            6,
+            8,
+            9
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L6-L9"
+        },
+        {
+          "title": "待办",
+          "items": [
+            "按课堂要求完成 fork 变量可见性作业，并提交课程平台。",
+            "围绕地址空间与页表复习两类切换的开销对比。"
+          ],
+          "sourceLines": [
+            6,
+            7,
+            9
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L6-L9"
+        },
+        {
+          "title": "疑问与缺失",
+          "items": [
+            "记录没有给出 fork 作业的答案。",
+            "切换开销比较的完整论证未展开，补充阅读材料也未明确。"
+          ],
+          "sourceLines": [
+            6,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L6-L7"
+        },
+        {
+          "title": "复习提示与自测",
+          "items": [
+            "分别说出进程、线程是什么基本单位。",
+            "同一进程内的线程共享什么，各自保留什么？",
+            "全局变量在线程间是否可见，为什么要注意竞态？"
+          ],
+          "sourceLines": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L2-L5"
+        }
+      ]
+    },
+    "exam": {
+      "label": "考试复习版 · 本站依据转写整理的示例",
+      "origin": "illustrative",
+      "notice": "参考仓库考试版的结构，内容限于转写稿支持的范围；不将仓库样例中的高频、中频判断当成已验证考试概率。",
+      "sections": [
+        {
+          "title": "考点提示",
+          "items": [
+            "老师明确点名：进程切换与线程切换的开销对比，从地址空间、页表等方面回答。",
+            "记录没有给出考试占比或可量化的出题频率。"
+          ],
+          "sourceLines": [
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L7-L7"
+        },
+        {
+          "title": "必背清单",
+          "items": [
+            "进程：资源分配的基本单位。",
+            "线程：CPU 调度的基本单位。",
+            "同进程多线程：共享地址空间、各有自己的栈。",
+            "全局变量可见，并发时注意竞态。"
+          ],
+          "sourceLines": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L2-L5"
+        },
+        {
+          "title": "易混对比",
+          "items": [
+            "资源分配的基本单位是进程，CPU 调度的基本单位是线程。",
+            "共享地址空间不等于共用同一份栈。",
+            "切换开销应比较地址空间与页表；本转写没有展开完整答案。"
+          ],
+          "sourceLines": [
+            2,
+            3,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L2-L7"
+        },
+        {
+          "title": "题型提示",
+          "items": [
+            "复习进程切换和线程切换开销的比较题。",
+            "fork 后变量可见性以作业题出现，原文未直接给答案。"
+          ],
+          "sourceLines": [
+            6,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L6-L7"
+        },
+        {
+          "title": "作业与阅读",
+          "items": [
+            "作业：用伪代码描述 fork 后父子进程变量可见性。",
+            "下周五 23:59 前提交课程平台。",
+            "阅读要求：原文未明确。"
+          ],
+          "sourceLines": [
+            6,
+            9
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L6-L9"
+        },
+        {
+          "title": "自测卷",
+          "items": [
+            "题：进程与线程分别是什么基本单位？答：资源分配；CPU 调度。",
+            "题：同进程多线程共享什么、各有什么？答：共享地址空间，各有自己的栈。",
+            "题：同进程线程能看到全局变量吗？答：能；并发时需注意竞态。",
+            "题：比较进程与线程切换时，老师要求从哪些方面回答？答：地址空间、页表。",
+            "题：fork 后子进程修改变量，父进程是否能看到？答：转写未讲解，保留为作业待解。"
+          ],
+          "sourceLines": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L2-L7"
+        },
+        {
+          "title": "仍需补充",
+          "items": [
+            "补齐 fork 变量可见性作业的论证。",
+            "切换开销的详细机制需结合课程材料复核，不能用本示例替代。"
+          ],
+          "sourceLines": [
+            6,
+            7
+          ],
+          "sourceUrl": "https://github.com/z2302743489/class-notes-digest/blob/main/examples/sample-transcript.txt#L6-L7"
+        }
+      ]
+    },
+    "sourceOutputCaveats": [
+      "sample-output.md 原标题为“课堂纪要 · 考试复习版”，并非标准纪要。",
+      "原样例将多个主题标成高频或中频，但转写仅明确点名切换开销对比是期末大题方向；本站不照搬频率推断。",
+      "原样例包含进程独立地址空间、切换通常更贵、写时复制等扩展解释，转写没有完整讲解；本站展示版不将这些内容标为课堂原话。",
+      "原样例写“无疑点”，但转写没有给出 fork 作业答案或切换开销完整论证；本站保留待补充项。"
+    ]
+  },
+  "launch": {
+    "title": "从想法到上线 · 六阶段导览",
+    "mode": "fixture",
+    "notice": "按实际手册整理的固定流程，不执行开发、验收或部署。云平台价格、额度、身份与合规条件不构成本站承诺，使用前需另行核对。",
+    "source": {
+      "repo": "idea-to-launch-kit",
+      "file": "开始看这里.md",
+      "url": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md",
+      "sha": "4a50c44759a88da671aeecdd55c114031b83e6f0",
+      "lineStart": 1,
+      "lineEnd": 135
+    },
+    "stages": [
+      {
+        "stage": 0,
+        "title": "PRD 体检",
+        "aiWork": "检查需求缺项，分批提问，补齐产品描述。",
+        "humanChecks": [
+          "回答目标用户、核心任务与验收标准相关的问题；不确定项明确保留。",
+          "检查补全清单是否符合自己的产品想法。"
+        ],
+        "deliverables": [
+          "PRD 或补全后的需求说明",
+          "PRD 补全清单与待确认项"
+        ],
+        "sourceLines": [
+          52
+        ],
+        "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L52",
+        "deliverableNote": "交付物为手册中阶段工作与证据要求的简要归纳，不新增强制文件名。"
+      },
+      {
+        "stage": 1,
+        "title": "技术适配",
+        "aiWork": "提交技术适配声明。",
+        "humanChecks": [
+          "确认方案理解正确。",
+          "核对是否额外增加费用、平台或范围。",
+          "确认暂缓的功能不影响本次验收。"
+        ],
+        "deliverables": [
+          "技术适配声明",
+          "采用方案、暂缓项与范围说明"
+        ],
+        "sourceLines": [
+          53
+        ],
+        "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L53",
+        "deliverableNote": "交付物为手册中阶段工作与证据要求的简要归纳，不新增强制文件名。"
+      },
+      {
+        "stage": 2,
+        "title": "后端 MVP",
+        "aiWork": "实现核心功能，运行测试并提供真实模型样例。",
+        "humanChecks": [
+          "自行配置所需模型凭据。",
+          "检查真实生成结果并按业务标准评分。",
+          "按清单走通核心功能，核对原始自检证据。"
+        ],
+        "deliverables": [
+          "核心后端最小可用流程",
+          "真实生成结果与评分反馈",
+          "测试、自检与模型调用记录"
+        ],
+        "sourceLines": [
+          54
+        ],
+        "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L54",
+        "deliverableNote": "交付物为手册中阶段工作与证据要求的简要归纳，不新增强制文件名。"
+      },
+      {
+        "stage": 3,
+        "title": "正式前端",
+        "aiWork": "实现界面并适配手机。",
+        "humanChecks": [
+          "提供设计参考或视觉方向。",
+          "检查第一页并反馈。",
+          "在手机上走通关键流程。"
+        ],
+        "deliverables": [
+          "可操作的前端页面",
+          "移动端验收反馈",
+          "页面截图与构建、自检证据"
+        ],
+        "sourceLines": [
+          55
+        ],
+        "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L55",
+        "deliverableNote": "交付物为手册中阶段工作与证据要求的简要归纳，不新增强制文件名。"
+      },
+      {
+        "stage": 4,
+        "title": "上线",
+        "aiWork": "按手册的部署路线发布产品并给出可访问地址。",
+        "humanChecks": [
+          "本人完成所需账户、身份与授权操作。",
+          "核对部署资源和预算，确认后再开通付费项。",
+          "拿到网址后按验收清单逐项操作。"
+        ],
+        "deliverables": [
+          "可访问的网址",
+          "上线验收步骤与记录",
+          "部署相关证据包"
+        ],
+        "sourceLines": [
+          56
+        ],
+        "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L56",
+        "deliverableNote": "交付物为手册中阶段工作与证据要求的简要归纳，不新增强制文件名。"
+      },
+      {
+        "stage": 5,
+        "title": "收尾",
+        "aiWork": "整理项目文档，并退出本机部署登录。",
+        "humanChecks": [
+          "确认退出本机部署登录后网站仍可访问。",
+          "区分部署登录与线上运行依赖，核对运行凭据。"
+        ],
+        "deliverables": [
+          "收尾文档",
+          "退出部署登录后的访问确认"
+        ],
+        "sourceLines": [
+          57
+        ],
+        "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L57",
+        "deliverableNote": "交付物为手册中阶段工作与证据要求的简要归纳，不新增强制文件名。"
+      }
+    ],
+    "commonEvidence": {
+      "title": "阶段证据包",
+      "items": [
+        "截图",
+        "可自行打开的地址或操作步骤",
+        "是否表",
+        "verify-输出.txt 原始自检结果",
+        "冒烟记录.md 真实模型调用记录"
+      ],
+      "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/%E5%BC%80%E5%A7%8B%E7%9C%8B%E8%BF%99%E9%87%8C.md#L72",
+      "note": "本站只解释证据要求，不生成真实运行证据，也不运行 verify.sh 或 kit.sh。"
+    },
+    "template": {
+      "path": "content/prd-template.md",
+      "name": "原始 PRD 模板",
+      "sourceFile": "docs/PRD模板.md",
+      "sourceUrl": "https://github.com/z2302743489/idea-to-launch-kit/blob/main/docs/PRD模板.md",
+      "sha256": "77fb4ebc6182fe9a43098d2a7fa6aa8318ae1d2d618c62a2bd856ae53f77d1f6",
+      "attribution": "原始工具包 LICENSE：Copyright (c) 2025 hubooooooo，MIT。完整署名和许可见 content/SOURCES.md。",
+      "notice": "保留原文件全部内容。模板中的预算例子、免费环境描述是上游原文，不能当作本站对当前报价或政策的核实。"
+    }
+  }
+}
