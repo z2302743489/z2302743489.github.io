@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/github-cover-2026-11-16.jpg" width="100%" alt="我的个人网站项目封面" />
+</p>
+
 # 张健航 · AI 产品经理
 
 个人网站：https://z2302743489.github.io/
