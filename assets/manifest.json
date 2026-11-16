@@ -6,7 +6,7 @@
     "type": "github",
     "url": "https://github.com/z2302743489"
   },
-  "scope": "Public portfolio media and embedded Atlas static build",
+  "scope": "Public portfolio media, personal training footage and embedded Atlas static build",
   "attribution_policy": "Original public repository content and supplied local covers retain their original ownership and applicable terms. No relicensing of third-party brands, data, or Pexels media.",
   "assets": [
     {
@@ -381,6 +381,31 @@
       "width": 1091,
       "height": 655,
       "has_alpha": false
+    },
+    {
+      "path": "assets/training-poster.png",
+      "source_type": "user_supplied_training_video",
+      "sha256": "95e3c4be95b7970e50a21d18ba9548813c0d7791a1bdb0f6493b4cc3c9ddcb19",
+      "bytes": 155630,
+      "transformation": "Original frame at 00:03, no retouching; grayscale is applied by website CSS.",
+      "source_filename": "4af67ee29727424c4718a30f8da42a81.mp4"
+    },
+    {
+      "path": "assets/training-loop.mp4",
+      "source_type": "user_supplied_training_video",
+      "sha256": "e07528d67294aced8d03c62474ca14ed98ef56f9851885f850ea9d8dce806140",
+      "bytes": 259433,
+      "transformation": "00:02–00:12 excerpt, H.264, 24fps, muted, source metadata removed. No pose or person changes.",
+      "source_filename": "4af67ee29727424c4718a30f8da42a81.mp4"
+    },
+    {
+      "path": "assets/screens/model-atlas-live.jpg",
+      "source_type": "browser_screenshot",
+      "sha256": "49d41a7d74280dad37369d7a426111aa852df43b26b8325f9f23a615029efb09",
+      "bytes": 77543,
+      "transformation": "Actual embedded Model Atlas interface at the preserved source snapshot 2026-11-06.",
+      "repository": "https://github.com/z2302743489/ai-model-atlas",
+      "commit_sha": "a37035b84fc2d8b6d88acbe7f97dc4d0b602206a"
     }
   ],
   "atlas_demo": {
