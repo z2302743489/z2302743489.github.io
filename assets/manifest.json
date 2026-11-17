@@ -6,7 +6,7 @@
     "type": "github",
     "url": "https://github.com/z2302743489"
   },
-  "scope": "Public portfolio media, personal training footage and embedded Atlas static build",
+  "scope": "Personal portfolio content and licensed local assets; Sean Halpin page structure reimplemented with user project content.",
   "attribution_policy": "Original public repository content and supplied local covers retain their original ownership and applicable terms. No relicensing of third-party brands, data, or Pexels media.",
   "assets": [
     {
@@ -387,7 +387,7 @@
       "source_type": "user_supplied_training_video",
       "sha256": "95e3c4be95b7970e50a21d18ba9548813c0d7791a1bdb0f6493b4cc3c9ddcb19",
       "bytes": 155630,
-      "transformation": "Original frame at 00:03, no retouching; grayscale is applied by website CSS.",
+      "transformation": "Original frame at 00:03, no retouching; used in the About page.",
       "source_filename": "4af67ee29727424c4718a30f8da42a81.mp4"
     },
     {
@@ -406,6 +406,26 @@
       "transformation": "Actual embedded Model Atlas interface at the preserved source snapshot 2026-11-06.",
       "repository": "https://github.com/z2302743489/ai-model-atlas",
       "commit_sha": "a37035b84fc2d8b6d88acbe7f97dc4d0b602206a"
+    },
+    {
+      "path": "assets/fonts/bricolage-grotesque-latin-variable.woff2",
+      "source_type": "official_google_fonts",
+      "source_url": "https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInHWVyNJ.woff2",
+      "license": "SIL Open Font License 1.1",
+      "license_path": "assets/fonts/BricolageGrotesque-OFL.txt",
+      "bytes": 76868,
+      "sha256": "85f55a58a31e61a2e19e8bb25fed503181bf2a6b4cab76c589992cfaac377447",
+      "transformation": "Unmodified Latin WOFF2 subset; renamed local file only."
+    },
+    {
+      "path": "assets/fonts/dm-sans-latin-variable.woff2",
+      "source_type": "official_google_fonts",
+      "source_url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHTWEBlw.woff2",
+      "license": "SIL Open Font License 1.1",
+      "license_path": "assets/fonts/DMSans-OFL.txt",
+      "bytes": 62556,
+      "sha256": "aa530716b0d351866af7dbfa3eee4120fb36f2d071baff8c234185141865c7ff",
+      "transformation": "Unmodified Latin WOFF2 subset; renamed local file only."
     }
   ],
   "atlas_demo": {

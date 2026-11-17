@@ -1,58 +1,47 @@
 #!/usr/bin/env python3
-"""Build the static portfolio. No third-party dependencies."""
+"""Generate the portfolio with the measured Sean Halpin page structure."""
 import html
 import json
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-SITE = json.loads((ROOT / "site.json").read_text())
-PROJECTS = json.loads((ROOT / "content/projects.json").read_text())["projects"]
-BY_SLUG = {p["slug"]: p for p in PROJECTS}
-VERSION = "20261116-dennis-1"
-
-def e(value):
-    return html.escape(str(value), quote=True)
-
-def name(p):
-    return p.get("displayName", p["name"].replace(" · ", " "))
-
-def ext(url, label, cls="text-link"):
-    return f'<a class="{cls}" href="{e(url)}" target="_blank" rel="noopener noreferrer">{label}<span aria-hidden="true">↗</span></a>'
-
-def header(base):
-    return f'''<a class="skip" href="#main">跳到正文</a>
-<header class="site-header"><div class="header-inner">
-<a class="wordmark" href="{base}" aria-label="张健航 首页"><span class="brand-dot" aria-hidden="true"></span>张健航</a>
-<nav id="navigation" class="nav-links" aria-label="主导航"><a href="{base}work/">作品</a><a href="{base}about/">关于</a><a href="{base}#contact">联系</a>{ext(SITE["github"], "GitHub", "nav-github")}</nav>
-<div class="header-controls"><button class="theme-control" data-theme-toggle aria-label="切换为深色主题" title="切换主题">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="navigation" aria-label="展开导航"><span></span><span></span></button></div>
-</div></header>'''
-
+ROOT=Path(__file__).resolve().parents[1]
+SITE=json.loads((ROOT/"site.json").read_text())
+PROJECTS=json.loads((ROOT/"content/projects.json").read_text())["projects"]
+BY={p["slug"]:p for p in PROJECTS}
+VERSION="20261116-sean-1"
+ORDER=["zhixu","model-atlas","cash","grok-fat","boxing","notes","launch-kit","portfolio"]
+CARD={
+ "zhixu":("知序","AI 问答","#d094e5",1,10),
+ "model-atlas":("AI MODEL ATLAS","模型全景","#a3dcd4",11,26),
+ "cash":("CASH.AI","游戏创作","#e8b89c",1,16),
+ "grok-fat":("GROK FAT","桌面助手","#bddff9",17,26),
+ "boxing":("BOXING POSE","拳击分析","#ffffff",1,16),
+ "notes":("CLASS NOTES","课堂纪要","#1c1c1c",17,26),
+ "launch-kit":("IDEA TO LAUNCH","技术手册","#e8b89c",1,10),
+ "portfolio":("JIANHANG","个人网站","#c9d0f3",11,26)
+}
+def e(v):return html.escape(str(v),quote=True)
+def name(p):return p.get("displayName",p["name"].replace(" · "," "))
+def ext(url,label,cls="text-link"):return f'<a href="{e(url)}" class="{cls}" target="_blank" rel="noopener noreferrer">{label}<span aria-hidden="true">↗</span></a>'
+def header(base,active):
+    def nav(label,url,key):
+        a=' class="active" aria-current="page"' if active==key else ""
+        slash='<span class="slash" aria-hidden="true">/</span>' if key=="work" else ""
+        return f'<li><a href="{base}{url}"{a}>{label}{slash}</a></li>'
+    return f'''<a class="skip" href="#main">跳到正文</a><header class="site-header"><nav aria-label="主导航"><ul class="nav-list">{nav("Work","","work")}{nav("About","about/","about")}{nav("Play","play/","play")}{nav("Notes","projects/notes/","notes")}<li><button data-contact>Contact</button></li></ul></nav></header>'''
 def footer(base):
-    return f'''<footer class="contact-footer" id="contact"><div class="footer-curve" aria-hidden="true"></div><div class="container">
-<div class="contact-title"><img src="{base}assets/avatar.webp" width="68" height="68" alt="张健航的 GitHub 头像"><h2>在 GitHub<br>找到我。</h2><span class="contact-arrow" aria-hidden="true">↘</span></div>
-<div class="contact-line">{ext(SITE["github"], "GitHub", "round-link contact-round")}<span>代码、项目说明和最近的修改，都在这里。</span></div>
-<div class="footer-bottom"><p>张健航 © 2026</p><div><button data-copy-url>复制网站链接</button><a href="{base}references.html">参考与来源</a><button data-theme-secondary>切换主题</button></div></div>
-</div></footer><div class="toast" role="status" aria-live="polite"></div>'''
-
-def page(title, desc, content, base="./", canonical="", demo=None, page_type="inner"):
-    data = f' data-demo="{demo}"' if demo else ""
-    demo_css = f'<link rel="stylesheet" href="{base}demos.css?v={VERSION}">' if demo else ""
-    demo_js = f'<script defer src="{base}demos.js?v={VERSION}"></script>' if demo else ""
-    return f'''<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="theme-color" content="#17191a">
-<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:image" content="{SITE["url"]}assets/training-poster.png">
-<link rel="canonical" href="{SITE["url"]}{canonical}"><link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
-<script>try{{if(localStorage.getItem('jh-theme')==='dark')document.documentElement.dataset.theme='dark'}}catch(e){{}}</script>
-{demo_css}<link rel="stylesheet" href="{base}style.css?v={VERSION}"><script defer src="{base}app.js?v={VERSION}"></script>{demo_js}
-</head><body data-base="{base}" data-page="{page_type}"{data}>{header(base)}{content}{footer(base)}</body></html>'''
-
-def group(p):
-    return "tools" if p["slug"] in ("launch-kit", "notes") else "personal" if p["slug"] in ("boxing", "portfolio") else "ai"
-
-def screen(p):
-    return {"zhixu":"zhixu-chat.png","model-atlas":"model-atlas-live.jpg","cash":"cash-dark.png","grok-fat":"grok-app.jpg","boxing":"boxing-analysis.png"}.get(p["slug"])
-
+    ticks="".join(f'<button class="hour{" active" if i==13 else ""}" data-hour="{i}" aria-label="{i:02d}:00 配色" aria-pressed="{str(i==13).lower()}"><span class="hour-bubble" aria-hidden="true">☀</span><span class="hour-line"></span></button>' for i in range(24))
+    return f'''<footer class="site-footer"><div class="footer-grid"><div class="legal">© 2026 张健航 <span>•</span> <a href="{base}references.html">Colophon</a></div><ul><li class="footer-label">Elsewhere</li><li>{ext(SITE["github"],"GitHub","")}</li><li><a href="{base}work/">全部项目</a></li><li><a href="{base}projects/launch-kit/">技术手册</a></li><li><button data-theme-toggle aria-label="切换为深色主题">Theme</button></li></ul><ul><li class="footer-label">Contact</li><li><button data-contact>Message</button></li></ul></div></footer><div class="circadian" aria-label="背景时段配色"><div class="hours">{ticks}</div></div>'''
+def overlays(base):
+    items=[{"name":name(p),"detail":p["description"],"href":base+"projects/"+p["slug"]+"/"} for p in PROJECTS]
+    data=json.dumps(items,ensure_ascii=False).replace("<","\\u003c")
+    return f'''<aside class="contact-panel" role="dialog" aria-label="张健航的项目与联系入口" aria-modal="false" hidden><div class="contact-head"><img src="{base}assets/avatar.webp" alt="" width="38" height="38"><div><strong>张健航</strong><span>AI 产品经理</span></div><button class="close-contact" data-contact-close aria-label="关闭联系窗口">×</button></div><div class="contact-inner"><p class="chat-bubble">你好，我是张健航。</p><p class="chat-bubble">这里可以查看我的项目和个人介绍，也可以去 GitHub 找到我。</p><div class="quick-links"><a href="{base}work/">查看全部项目</a><a href="{base}play/">看看演示</a><a href="{base}about/">了解我的背景</a>{ext(SITE["github"],"去 GitHub","")}</div></div></aside>
+<div class="search-backdrop" data-search-backdrop hidden><section class="search-dialog" role="dialog" aria-modal="true" aria-label="搜索项目"><label class="sr-only" for="project-search">搜索项目</label><input id="project-search" placeholder="Search projects…" autocomplete="off"><button class="search-close" data-search-close aria-label="关闭搜索">Esc</button><div class="search-results"></div></section></div><script type="application/json" id="search-data">{data}</script><div class="toast" role="status" aria-live="polite"></div>'''
+def page(title,desc,content,base="./",canonical="",demo=None,active="work"):
+    demoattrs=f' data-demo="{demo}"' if demo else ""
+    dcss=f'<link rel="stylesheet" href="{base}demos.css?v={VERSION}">' if demo else ""
+    djs=f'<script defer src="{base}demos.js?v={VERSION}"></script>' if demo else ""
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="theme-color" content="#ede7de"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:image" content="{SITE["url"]}assets/screens/zhixu-chat.png"><link rel="canonical" href="{SITE["url"]}{canonical}"><link rel="icon" href="{base}favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{base}assets/fonts/fonts.css"><link rel="preload" href="{base}assets/fonts/bricolage-grotesque-latin-variable.woff2" as="font" type="font/woff2" crossorigin><script>try{{if(localStorage.getItem('jh-theme')==='dark')document.documentElement.dataset.theme='dark'}}catch(e){{}}</script>{dcss}<link rel="stylesheet" href="{base}style.css?v={VERSION}"><script defer src="{base}app.js?v={VERSION}"></script>{djs}</head><body data-base="{base}"{demoattrs}><div class="aura" aria-hidden="true"><canvas width="32" height="32"></canvas><div class="aura-mask"></div></div>{header(base,active)}{content}{footer(base)}{overlays(base)}</body></html>'''
+def screen(p):return {"zhixu":"zhixu-chat.png","model-atlas":"model-atlas-live.jpg","cash":"cash-dark.png","grok-fat":"grok-app.jpg","boxing":"boxing-analysis.png"}.get(p["slug"])
 def visual(p, base="./", lazy=True):
     slug=p["slug"]
     loading='loading="lazy"' if lazy else 'fetchpriority="high"'
@@ -66,67 +55,49 @@ def visual(p, base="./", lazy=True):
         return f'''<div class="media-visual analysis-visual"><img class="analysis-person" src="{base}assets/boxing-poster.jpg" alt="训练中的骨架与重心标注" {loading}><img class="analysis-chart" src="{base}assets/screens/boxing-analysis.png" alt="训练重心与逐拳分析图表" {loading}></div>'''
     return f'<div class="media-visual screen-visual media-{slug}"><img src="{base}assets/screens/{screen(p)}" alt="{e(name(p))}实际项目界面" {loading} width="1440" height="900"></div>'
 
-def row(p, base="./"):
-    path=f'{base}projects/{p["slug"]}/'
-    preview=f' data-preview-src="{base}assets/screens/{screen(p)}"' if screen(p) else ""
-    return f'''<article class="work-row" data-project data-group="{group(p)}"{preview}><div class="work-row-main"><h3><a href="{path}" aria-label="了解{e(name(p))}">{e(name(p))}</a></h3><p>{e(p.get("homeBlurb", p["description"]))}</p></div><div class="work-row-meta"><span>{e(p["category"].split(" / ")[0])}</span><div><a href="{path}">介绍</a><a href="{path}#demo">演示 <span aria-hidden="true">↗</span></a></div></div><a class="mobile-work-preview" href="{path}" tabindex="-1" aria-hidden="true">{visual(p,base)}</a></article>'''
-
-def home():
-    selected="".join(row(BY_SLUG[s]) for s in ("zhixu","model-atlas","boxing"))
-    stills="".join(f'<a class="still-item" href="projects/{s}/">{visual(BY_SLUG[s])}<div><h3>{e(name(BY_SLUG[s]))}</h3><p>{e(BY_SLUG[s].get("homeBlurb", BY_SLUG[s]["description"]))}</p><span aria-hidden="true">↗</span></div></a>' for s in ("cash","grok-fat"))
-    content=f'''<main id="main">
-<section class="home-hero" aria-labelledby="hero-name">
-<div class="training-scene"><video class="hero-video" muted loop playsinline preload="metadata" poster="assets/training-poster.png" aria-label="张健航的拳击训练片段"><source src="assets/training-loop.mp4" type="video/mp4"></video></div>
-<div class="hero-side-note"><span>AI 产品经理</span><p>平时练拳，<br>也做一些 AI 项目。</p></div>
-<a class="hero-work-link" href="#projects" aria-label="往下查看作品"><span>看看作品</span><span aria-hidden="true">↘</span></a>
-<div class="hero-name"><h1 id="hero-name">张健航</h1><span>Jianhang Zhang</span></div>
-<button class="motion-control" data-hero-play aria-pressed="false">播放画面</button><span class="hero-scroll-note" aria-hidden="true">向下看看</span>
-</section>
-<section class="container introduction" aria-label="个人简介"><h2>我叫张健航，25 岁。<br>计算机应用技术专业毕业，<br>现在做 AI 产品。</h2><div><p>这里放了我的个人项目，也有基于现有项目做的改版。知识库、模型资料站，还有一个用来复盘拳击动作的小工具。</p><a class="round-link about-round" href="about/">关于我 <span aria-hidden="true">↗</span></a></div></section>
-<section class="container selected-work" id="projects" aria-labelledby="selected-heading"><div class="section-heading"><h2 id="selected-heading">一些项目</h2><a href="work/" class="quiet-link">查看全部 8 个项目 <span aria-hidden="true">↗</span></a></div><div class="work-list">{selected}</div><div class="all-work-link"><a class="outline-link" href="work/">全部项目 <span>8</span></a></div></section>
-<section class="project-stills" aria-label="两个桌面项目"><div class="container"><div class="section-heading"><h2>桌面上的两个项目</h2><p>一个做游戏，一个处理日常任务。</p></div><div class="stills-grid">{stills}</div></div></section>
-</main><div class="hover-preview" aria-hidden="true"><img alt="" src="assets/screens/zhixu-chat.png"></div>'''
-    (ROOT/"index.html").write_text(page("张健航 — AI 产品经理", "张健航，25岁，计算机应用技术专业毕业。个人项目、开源定制、AI产品与拳击动作分析。",content,page_type="home"))
-
-def work():
-    cards=[]
-    for p in PROJECTS:
-        slug=p["slug"]
-        cards.append(f'''<article class="work-card" data-project data-group="{group(p)}"><a class="work-card-image" href="../projects/{slug}/" aria-label="了解{e(name(p))}">{visual(p,"../")}</a><div class="work-card-title"><h2><a href="../projects/{slug}/">{e(name(p))}</a></h2><a href="../projects/{slug}/#demo">演示 ↗</a></div><p>{e(p["description"])}</p><div class="work-card-type"><span>{e(p["category"])}</span><span>{e(p["kind"])}</span></div></article>''')
-    content=f'''<main id="main" class="container work-page"><div class="page-intro"><p class="page-kicker">作品</p><h1>做过的，<br>也还在改的。</h1><p>每个项目都写了用途、实现和取舍，也放了对应的演示。</p></div><div class="project-controls"><div class="filters" aria-label="筛选项目"><button data-filter="all" aria-pressed="true">全部</button><button data-filter="ai" aria-pressed="false">AI 产品</button><button data-filter="tools" aria-pressed="false">开发与学习</button><button data-filter="personal" aria-pressed="false">个人项目</button></div><p data-project-count role="status">8 个项目</p></div><div class="work-grid">{"".join(cards)}</div></main>'''
-    folder=ROOT/"work";folder.mkdir(exist_ok=True)
-    (folder/"index.html").write_text(page("作品 — 张健航","八个项目的介绍、实际界面与演示。",content,"../","work/"))
-
+def card(p,base="./"):
+    brand,title,color,start,end=CARD[p["slug"]]
+    dark=' card-dark' if p["slug"]=="notes" else ""
+    return f'''<a class="project-card{dark}" data-project href="{base}projects/{p["slug"]}/" aria-label="了解{name(p)}" style="--card-bg:{color};--col-start:{start};--col-end:{end}"><div class="card-wrap"><div class="card-info"><span>{e(brand)}</span><h2>{e(title)}</h2></div><div class="card-inner"><div class="card-picture">{visual(p,base)}</div></div></div></a>'''
+def home(base="./",canonical=""):
+    first="".join(card(BY[s],base) for s in ORDER[:4])
+    more="".join(card(BY[s],base) for s in ORDER[4:])
+    content=f'''<main id="main"><h1 class="home-title"><span class="title-holder">Hi. I'm Jianhang.<br><span class="role-line">AI Product Manager.</span><svg class="sparkle left" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C58 0 58 32 67 36S100 42 100 50S76 58 67 64S58 100 50 100S42 76 36 67S0 58 0 50S24 42 36 36S42 0 50 0Z"/></svg><svg class="sparkle right" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C58 0 58 32 67 36S100 42 100 50S76 58 67 64S58 100 50 100S42 76 36 67S0 58 0 50S24 42 36 36S42 0 50 0Z"/></svg></span></h1><div class="text-wrapper"><p class="hero-description">张健航，25 岁，计算机应用技术专业毕业。<br>这里是我的 AI 项目、开源改版和一些小工具。</p></div><section class="cards main-cards" id="projects" aria-label="主要项目"><div class="cards-content">{first}</div></section><section class="more-work"><h2>More Projects.</h2><div class="text-wrapper"><p>训练视频分析、课堂笔记、开发手册，还有这个网站。<br>每个项目都保留了介绍、来源和可以体验的演示。</p></div><div class="cards more-cards"><div class="cards-content">{more}</div></div></section></main>'''
+    return page("张健航 • AI 产品经理","张健航，25岁，计算机应用技术专业毕业，AI产品经理。查看八个项目的介绍和演示。",content,base,canonical)
 def about():
-    content=f'''<main id="main" class="container about-page"><div class="page-intro"><p class="page-kicker">关于</p><h1>我是张健航。<br>做 AI 产品，也练拳。</h1></div><div class="about-layout"><figure class="about-photo"><img src="../assets/training-poster.png" alt="张健航在户外练习拳击" width="320" height="568"><figcaption>一段日常训练的视频截图。</figcaption></figure><div class="about-story"><p class="about-opening">25 岁，计算机应用技术专业毕业，AI 产品经理。</p><p>我把一些想试的东西做成了项目。企业里的资料怎么查，模型信息怎么整理，游戏创意能不能做成能玩的东西，这些都在作品里。</p><p>有从头做的工具，也有基于现有项目的改版。每个项目页里都写了具体用途和原作来源，可以直接看演示，也可以继续去读代码。</p><p>拳击给了我另一个选题。我拍了自己的训练视频，试着提取骨架和重心，再把结果叠回视频，方便逐拳回看。现在还是个二维分析的小原型。</p><div class="about-links"><a class="outline-link" href="../projects/boxing/">看看拳击分析 ↗</a>{ext(SITE["github"],"GitHub","outline-link")}</div><dl class="about-facts"><div><dt>岗位</dt><dd>AI 产品经理</dd></div><div><dt>专业</dt><dd>计算机应用技术</dd></div><div><dt>年龄</dt><dd>25 岁</dd></div></dl></div></div></main>'''
-    folder=ROOT/"about";folder.mkdir(exist_ok=True)
-    (folder/"index.html").write_text(page("关于张健航","张健航，25岁，计算机应用技术专业毕业，AI产品经理，平时练习拳击。",content,"../","about/"))
-
+    timeline="".join(f'<a class="project-history" href="../projects/{s}/"><strong>{e(name(BY[s]))}</strong><span>{e(BY[s]["kind"])}</span><span aria-hidden="true">↗</span></a>' for s in ("zhixu","model-atlas","boxing","notes"))
+    topics="".join(f'<article><span class="topic-number">{i+1:02}</span><h3>{e(name(BY[s]))}</h3><p>{e(BY[s]["summary"])}</p></article>' for i,s in enumerate(("zhixu","model-atlas","boxing","notes")))
+    content=f'''<main id="main"><h1 class="page-title">I'm Jianhang.</h1><section class="about-intro"><figure class="about-portrait"><img src="../assets/training-poster.png" alt="张健航日常拳击训练的视频截图" width="320" height="568"></figure><div><h2 class="display-heading">我是张健航，<br>一名 AI 产品经理。</h2><p>25 岁，计算机应用技术专业毕业。这里放了我的个人项目，也有基于现有项目做的改版。</p><p>知识库、模型资料站、游戏创作工具，还有用来复盘拳击动作的小原型，都可以在作品页里找到。</p></div></section><div class="project-history-list">{timeline}</div><section class="about-topics"><h2 class="display-heading">我在做的几件事。</h2><p>每个项目页里都写了具体用途、实现和原作来源，也保留了对应的演示。</p><div class="topic-grid">{topics}</div></section><section class="about-ending text-wrapper"><p>平时我也练拳击。我拍了自己的训练视频，试着提取骨架和重心，再把结果叠回视频，方便逐拳回看。现在还是个二维分析的小原型。</p><div class="about-pictures"><img src="../assets/training-poster.png" alt="日常训练" loading="lazy"><img src="../assets/screens/boxing-analysis.png" alt="训练分析图表" loading="lazy"></div></section></main>'''
+    return page("About • 张健航","张健航，25岁，计算机应用技术专业毕业，AI产品经理。",content,"../","about/",active="about")
+def play():
+    content=f'''<main id="main"><h1 class="page-title">A little Play.</h1><div class="text-wrapper"><p class="hero-description">试试头像、看看训练标注，或者玩一段简单的接星星示意。</p></div><div class="play-grid"><a href="../projects/grok-fat/#demo">{visual(BY["grok-fat"],"../")}<h2>Fat 头像</h2><p>六款头像与动态预览。</p></a><a href="../projects/boxing/#demo">{visual(BY["boxing"],"../")}<h2>拳击动作分析</h2><p>播放骨架与重心标注片段。</p></a><a href="../projects/cash/#demo">{visual(BY["cash"],"../")}<h2>游戏创作与试玩</h2><p>查看流程，再试一段本站实现的接星星玩法。</p></a></div></main>'''
+    return page("Play • 张健航","现有项目里的头像、视频与玩法示意。",content,"../","play/",active="play")
 def case(p,index):
-    nxt=PROJECTS[(index+1)%len(PROJECTS)]
-    features="".join(f'<article class="feature-row"><h3>{e(f["title"])}</h3><p>{e(f["detail"])}</p></article>' for f in p["features"])
-    decisions="".join(f'<article class="decision"><h3>{e(f["title"])}</h3><p>{e(f["detail"])}</p></article>' for f in p["decisions"])
-    evidence="".join(f'<li>{ext(f["url"],e(f["label"]),"source-link")}<p>{e(f["detail"])}</p></li>' for f in p["evidence"])
-    content=f'''<main id="main"><section class="container case-head"><nav class="breadcrumb" aria-label="面包屑"><a href="../../work/">全部作品</a><span aria-hidden="true">/</span><span>{e(name(p))}</span></nav><h1>{e(name(p))}</h1><div class="case-intro-grid"><p class="case-summary">{e(p["description"])}</p><div class="case-meta"><span>{e(p["kind"])}</span><span>{e(p["category"])}</span><div class="case-actions"><a class="text-link" href="#demo">查看演示 <span aria-hidden="true">↓</span></a>{ext(p["links"]["repo"],"项目源码")}</div></div></div><div class="case-media">{visual(p,"../../",False)}</div></section>
-<div class="container case-layout"><nav class="case-toc" aria-label="项目内容"><a href="#demo">演示</a><a href="#problem">解决什么问题</a><a href="#features">具体功能</a><a href="#decisions">几处取舍</a><a href="#evidence">状态与来源</a></nav><div class="case-content">
-<section class="case-section" id="demo"><h2>演示</h2><p>{e(p["demoIntro"])}</p><div id="project-demo" class="demo-shell" aria-label="{e(name(p))}交互演示"><div class="empty-demo">正在载入演示…</div></div><noscript><p class="demo-disclosure">交互演示需要 JavaScript，也可以通过源码链接查看项目。</p></noscript><p class="demo-disclosure">{e(p["demoLimit"])}</p></section>
-<section class="case-section" id="problem"><h2>解决什么问题</h2><p>{e(p["summary"])}</p><dl class="problem-details"><div><dt>给谁用</dt><dd>{e(p["audience"])}</dd></div><div><dt>遇到的问题</dt><dd>{e(p["pain"])}</dd></div></dl></section>
-<section class="case-section" id="features"><h2>具体做了什么</h2><div class="feature-list">{features}</div></section>
-<section class="case-section" id="decisions"><h2>几处取舍</h2><div class="decision-grid">{decisions}</div></section>
-<section class="case-section" id="evidence"><h2>当前状态</h2><p>{e(p["status"])}</p><div class="stack"><span>用到的工具</span><p>{e(" / ".join(p["stack"]))}</p></div><details class="project-sources"><summary>查看资料与原作来源 <span aria-hidden="true">+</span></summary><ul class="evidence-list">{evidence}</ul><p class="attribution">{e(p["attribution"])}</p></details></section>
-<a class="next-project" href="../{nxt["slug"]}/"><small>下一个项目</small><strong>{e(name(nxt))}</strong><span aria-hidden="true">↗</span></a></div></div></main>'''
-    folder=ROOT/"projects"/p["slug"];folder.mkdir(parents=True,exist_ok=True)
-    (folder/"index.html").write_text(page(f'{name(p)} — 张健航',p["description"],content,"../../",f'projects/{p["slug"]}/',p["demoType"]))
-
+    nxt=BY[ORDER[(index+1)%len(ORDER)]]
+    features="".join(f'<article class="feature-row"><h3>{e(x["title"])}</h3><p>{e(x["detail"])}</p></article>' for x in p["features"])
+    decisions="".join(f'<article class="decision"><h3>{e(x["title"])}</h3><p>{e(x["detail"])}</p></article>' for x in p["decisions"])
+    sources="".join(f'<li>{ext(x["url"],e(x["label"]))}<p>{e(x["detail"])}</p></li>' for x in p["evidence"])
+    bg=CARD[p["slug"]][2]
+    content=f'''<main id="main"><header class="case-head"><h1 class="page-title">{e(name(p))}.</h1><div class="case-meta"><div><span>Type</span><p>{e(p["kind"])}</p></div><div><span>Project</span><p>{e(p["category"])}</p></div><div><span>Links</span><p><a href="#demo">查看演示 ↓</a><br>{ext(p["links"]["repo"],"项目源码")}</p></div></div></header><div class="hero-media" style="--media-bg:{bg}">{visual(p,"../../",False)}</div><div class="case-content">
+<section class="case-section" id="problem"><h2>Overview</h2><p class="project-description">{e(p["description"])}</p><p>{e(p["summary"])}</p><dl class="problem-details"><div><dt>给谁用</dt><dd>{e(p["audience"])}</dd></div><div><dt>遇到的问题</dt><dd>{e(p["pain"])}</dd></div></dl></section>
+<section class="case-section" id="demo"><h2>Demo</h2><p>{e(p["demoIntro"])}</p><div id="project-demo" class="demo-shell" aria-label="{e(name(p))}交互演示"><div class="empty-demo">正在载入演示…</div></div><noscript><p>交互演示需要 JavaScript，也可以通过源码链接查看项目。</p></noscript><p class="demo-disclosure">{e(p["demoLimit"])}</p></section>
+<section class="case-section" id="features"><h2>Features</h2><div class="feature-list">{features}</div></section>
+<section class="case-section" id="decisions"><h2>Decisions</h2><div class="decision-grid">{decisions}</div></section>
+<section class="case-section" id="evidence"><h2>Current Status</h2><p>{e(p["status"])}</p><div class="stack"><span>Tools</span><p>{e(" / ".join(p["stack"]))}</p></div><details class="project-sources"><summary>查看资料与原作来源 <span>+</span></summary><ul class="evidence-list">{sources}</ul><p class="attribution">{e(p["attribution"])}</p></details></section>
+<a class="next-project" href="../{nxt["slug"]}/"><span>Next project</span><strong>{e(name(nxt))}.</strong><span aria-hidden="true">↗</span></a></div></main>'''
+    return page(f'{name(p)} • 张健航',p["description"],content,"../../",f'projects/{p["slug"]}/',demo=p["demoType"],active="notes" if p["slug"]=="notes" else "work")
 def references():
-    content='''<main id="main" class="container references"><p class="page-kicker">参考与来源</p><h1>这个网站<br>用到了什么。</h1><h2>视觉参考</h2><p>首屏的人物与姓名关系、作品列表和圆形入口，参考了 <a href="https://dennissnellenberg.com/" target="_blank" rel="noopener">Dennis Snellenberg</a> 的个人网站。项目演示的组织参考 <a href="https://screen.studio/" target="_blank" rel="noopener">Screen Studio</a>，围绕具体操作说明功能。</p><h2>照片和界面</h2><p>训练影像来自张健航本人提供的视频。首屏只做网页上的灰度呈现，保留实际人物与动作。项目预览主要采用公开项目中的实际界面、分析图表和示例资料。GitHub 头像用于个人标识。</p><p>八个项目均保留独立介绍、演示与源码链接。基于上游项目的改版，在详情中标明原作归属。原有 AI 生成封面继续保留在素材目录中。</p><h2>演示资料</h2><p>模型全景是可操作的静态网页，资料快照为 2026-11-06。拳击页播放已发布的标注片段。知识库、课堂纪要和开发手册使用固定示例，头像与游戏创作页提供界面或流程预览。各演示的范围在对应页面说明。</p><p><a href="content/SOURCES.md">项目资料与许可</a> · <a href="assets/manifest.json">媒体来源清单</a> · <a href="https://github.com/z2302743489/z2302743489.github.io" target="_blank" rel="noopener">网站源码</a></p></main>'''
-    (ROOT/"references.html").write_text(page("参考与来源 — 张健航","网站设计参考、媒体来源与项目许可。",content,canonical="references.html"))
-
-home()
-work()
-about()
-for i,p in enumerate(PROJECTS):case(p,i)
-references()
+    content='''<main id="main"><h1 class="page-title">Colophon.</h1><div class="reading-page"><h2>页面参考</h2><p>本版按 <a href="https://www.seanhalpin.xyz/" target="_blank" rel="noopener">Seán Halpin 的公开网站</a>核对布局、色板、导航、卡片比例与响应式规则，用张健航的信息和项目内容重新实现。</p><h2>字体</h2><p>原站标题为 Acorn Semibold，正文为 GT Planar Regular，均为商业字款。本网站使用可公开部署的 Bricolage Grotesque 与 DM Sans 近似替代，保留 OFL 许可。中文采用系统字体。</p><p><a href="content/font-sources.md">字体来源与许可</a></p><h2>项目与素材</h2><p>八个项目的介绍、源码、原作归属与演示保留。项目界面、训练片段和头像来自本人提供或公开仓库中的原有素材。首页图像已替换为自己的项目内容。</p><p>模型全景资料快照为 2026-11-06。其余演示各自保留固定示例、界面预览或视频范围说明。</p><p><a href="content/SOURCES.md">项目资料与许可</a> · <a href="assets/manifest.json">媒体来源</a> · <a href="https://github.com/z2302743489/z2302743489.github.io" target="_blank" rel="noopener">网站源码</a></p></div></main>'''
+    return page("Colophon • 张健航","网站参考、字体、项目资料与媒体来源。",content,canonical="references.html")
+(ROOT/"index.html").write_text(home())
+for folder in ("work","about","play"):(ROOT/folder).mkdir(exist_ok=True)
+(ROOT/"work/index.html").write_text(home("../","work/"))
+(ROOT/"about/index.html").write_text(about())
+(ROOT/"play/index.html").write_text(play())
+for i,s in enumerate(ORDER):
+    folder=ROOT/"projects"/s;folder.mkdir(parents=True,exist_ok=True)
+    (folder/"index.html").write_text(case(BY[s],i))
+(ROOT/"references.html").write_text(references())
+(ROOT/"404.html").write_text(page("页面没找到 • 张健航","返回个人网站。",'<main id="main"><h1 class="page-title">Not found.</h1><div class="text-wrapper"><p class="hero-description"><a href="/">返回首页</a></p></div></main>',"/","404.html"))
 (ROOT/".nojekyll").touch()
-(ROOT/"404.html").write_text(page("页面没找到 — 张健航","返回张健航的个人网站。",'<main id="main" class="container references"><p class="page-kicker">404</p><h1>这一页<br>暂时不在这里。</h1><p><a class="outline-link" href="/">回到首页 ↗</a></p></main>',"/","404.html"))
-print("Built homepage, work, about, 8 project pages, references and 404.")
+print("Built Sean-layout homepage, Work, About, Play, 8 project pages, Colophon and 404.")
