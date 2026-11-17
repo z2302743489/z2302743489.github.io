@@ -11,7 +11,7 @@
 - [cash.ai](https://github.com/z2302743489/cash.ai)：基于 Innate-Labs 项目进行品牌与体验调整。保留上游归属；上游暂无明确许可证。本网站不额外授予其代码的再分发或商业使用权。
 - [拳击动作与重心分析](https://github.com/z2302743489/boxing-pose-analysis)：视频片段与图表取自项目公开的单段训练样例；基础组件和方法归各原作者。
 - [课堂纪要拆解](https://github.com/z2302743489/class-notes-digest)：演示输入来自 examples/sample-transcript.txt。标准版和精简复习版均为本站整理示例；原 sample-output 实际为考试复习版，全文保留在 fixtures.json。
-- [个人网站](https://github.com/z2302743489/z2302743489.github.io)：项目卡片、独立详情页及本地交互演示的源码。
+- [Toonflow Skills](https://github.com/z2302743489/toonflow-skills)：基于 HBAI-Ltd/Toonflow-app 整理的第三方技能套件。文字试跑、安装分组与依赖说明固定到 d4b53ced4eb0d83ebba146833c3c3bfbcd190517；试跑原文与 MIT 许可保存在 toonflow/ 目录。此项补录于 2026-11-17。
 
 ## 演示素材
 
@@ -50,3 +50,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Toonflow 演示
+
+Toonflow 演示读取仓库已公开的《末班车》文字试跑，场次正文保留原意，人物与场景说明根据同一文件摘编。剧本为虚构创作，不是已经生成的视频。安装分组来自 suite.json，命令仅供复制，由用户自行在所用 Agent 与本地环境中执行。技能安装不会自动连接媒体执行器。

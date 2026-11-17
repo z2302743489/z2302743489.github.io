@@ -2,13 +2,14 @@
 """Generate the portfolio with the measured Sean Halpin page structure."""
 import html
 import json
+import argparse
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SITE=json.loads((ROOT/"site.json").read_text())
 PROJECTS=json.loads((ROOT/"content/projects.json").read_text())["projects"]
 BY={p["slug"]:p for p in PROJECTS}
-VERSION="20261116-image-fit-2"
-ORDER=["zhixu","model-atlas","cash","grok-fat","boxing","notes","launch-kit","portfolio"]
+VERSION="20261117-toonflow-1"
+ORDER=["zhixu","model-atlas","cash","grok-fat","boxing","notes","launch-kit","toonflow"]
 CARD={
  "zhixu":("知序","AI 问答","#d094e5",1,10),
  "model-atlas":("AI MODEL ATLAS","模型全景","#a3dcd4",11,26),
@@ -17,7 +18,7 @@ CARD={
  "boxing":("BOXING POSE","拳击分析","#ffffff",1,16),
  "notes":("CLASS NOTES","课堂纪要","#1c1c1c",17,26),
  "launch-kit":("IDEA TO LAUNCH","技术手册","#e8b89c",1,10),
- "portfolio":("JIANHANG","个人网站","#c9d0f3",11,26)
+ "toonflow":("42 AGENT SKILLS","Toonflow","#c9d0f3",11,26)
 }
 def e(v):return html.escape(str(v),quote=True)
 def name(p):return p.get("displayName",p["name"].replace(" · "," "))
@@ -27,7 +28,7 @@ def header(base,active):
         a=' class="active" aria-current="page"' if active==key else ""
         slash='<span class="slash" aria-hidden="true">/</span>' if key=="work" else ""
         return f'<li><a href="{base}{url}"{a}>{label}{slash}</a></li>'
-    return f'''<a class="skip" href="#main">跳到正文</a><header class="site-header"><nav aria-label="主导航"><ul class="nav-list">{nav("Work","","work")}{nav("About","about/","about")}{nav("Play","play/","play")}{nav("Notes","projects/notes/","notes")}<li><button data-contact>Contact</button></li></ul></nav></header>'''
+    return f'''<a class="skip" href="#main">跳到正文</a><header class="site-header"><nav aria-label="主导航"><ul class="nav-list">{nav("Work","work/","work")}{nav("About","about/","about")}{nav("Play","play/","play")}{nav("Notes","projects/notes/","notes")}<li><button data-contact>Contact</button></li></ul></nav></header>'''
 def footer(base):
     ticks="".join(f'<button class="hour{" active" if i==13 else ""}" data-hour="{i}" aria-label="{i:02d}:00 配色" aria-pressed="{str(i==13).lower()}"><span class="hour-bubble" aria-hidden="true">☀</span><span class="hour-line"></span></button>' for i in range(24))
     return f'''<footer class="site-footer"><div class="footer-grid"><div class="legal">© 2026 张健航 <span>•</span> <a href="{base}references.html">Colophon</a></div><ul><li class="footer-label">Elsewhere</li><li>{ext(SITE["github"],"GitHub","")}</li><li><a href="{base}work/">全部项目</a></li><li><a href="{base}projects/launch-kit/">技术手册</a></li><li><button data-theme-toggle aria-label="切换为深色主题">Theme</button></li></ul><ul><li class="footer-label">Contact</li><li><button data-contact>Message</button></li></ul></div></footer><div class="circadian" aria-label="背景时段配色"><div class="hours">{ticks}</div></div>'''
@@ -50,8 +51,8 @@ def visual(p, base="./", lazy=True):
         return '''<div class="media-visual document-visual" role="img" aria-label="想法到上线技术手册的六个阶段"><div class="document-sheet"><span>想法到上线</span><h3>一份可以照着走的<br>开发手册。</h3><div class="document-stages"><span>PRD 体检</span><span>技术适配</span><span>后端 MVP</span><span>正式前端</span><span>上线</span><span>收尾</span></div><p>手册 / PRD 模板 / 阶段验收清单</p></div></div>'''
     if slug=="notes":
         return '''<div class="media-visual notes-visual" role="img" aria-label="课堂纪要整理示例，操作系统课程"><div class="notes-sheet"><small>操作系统 · 第 5 周</small><h3>进程与线程</h3><div class="note-line"><span>知识点</span><p>进程是资源分配的基本单位。<br>线程是 CPU 调度的基本单位。</p></div><div class="note-line"><span>作业</span><p>fork 后，子进程修改变量，<br>父进程是否看得到？</p></div><span class="note-tag">同一份记录，两种整理方式</span></div></div>'''
-    if slug=="portfolio":
-        return f'''<div class="media-visual portfolio-visual" role="img" aria-label="张健航个人网站的姓名与训练画面"><img src="{base}assets/training-poster.png" alt="" {loading}><span>张健航</span><small>AI 产品经理 / 个人作品</small></div>'''
+    if slug=="toonflow":
+        return f'''<div class="media-visual screen-visual media-toonflow"><img src="{base}assets/covers/toonflow-skills-v1.png" alt="Toonflow Skills 剧本、角色与分镜主题的概念封面" {loading} width="1672" height="941"></div>'''
     if slug=="boxing":
         return f'''<div class="media-visual analysis-visual"><img class="analysis-person" src="{base}assets/boxing-poster.jpg" alt="训练中的骨架与重心标注" {loading}><img class="analysis-chart" src="{base}assets/screens/boxing-analysis.png" alt="训练重心与逐拳分析图表" {loading}></div>'''
     width,height=SCREEN_SIZES[slug]
@@ -64,7 +65,7 @@ def card(p,base="./"):
 def home(base="./",canonical=""):
     first="".join(card(BY[s],base) for s in ORDER[:4])
     more="".join(card(BY[s],base) for s in ORDER[4:])
-    content=f'''<main id="main"><h1 class="home-title"><span class="title-holder">Hi. I'm Jianhang.<br><span class="role-line">AI Product Manager.</span><svg class="sparkle left" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C58 0 58 32 67 36S100 42 100 50S76 58 67 64S58 100 50 100S42 76 36 67S0 58 0 50S24 42 36 36S42 0 50 0Z"/></svg><svg class="sparkle right" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C58 0 58 32 67 36S100 42 100 50S76 58 67 64S58 100 50 100S42 76 36 67S0 58 0 50S24 42 36 36S42 0 50 0Z"/></svg></span></h1><div class="text-wrapper"><p class="hero-description">张健航，25 岁，计算机应用技术专业毕业。<br>这里是我的 AI 项目、开源改版和一些小工具。</p></div><section class="cards main-cards" id="projects" aria-label="主要项目"><div class="cards-content">{first}</div></section><section class="more-work"><h2>More Projects.</h2><div class="text-wrapper"><p>训练视频分析、课堂笔记、开发手册，还有这个网站。<br>每个项目都保留了介绍、来源和可以体验的演示。</p></div><div class="cards more-cards"><div class="cards-content">{more}</div></div></section></main>'''
+    content=f'''<main id="main"><h1 class="home-title"><span class="title-holder">Hi. I'm Jianhang.<br><span class="role-line">AI Product Manager.</span><svg class="sparkle left" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C58 0 58 32 67 36S100 42 100 50S76 58 67 64S58 100 50 100S42 76 36 67S0 58 0 50S24 42 36 36S42 0 50 0Z"/></svg><svg class="sparkle right" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C58 0 58 32 67 36S100 42 100 50S76 58 67 64S58 100 50 100S42 76 36 67S0 58 0 50S24 42 36 36S42 0 50 0Z"/></svg></span></h1><div class="text-wrapper"><p class="hero-description">张健航，25 岁，计算机应用技术专业毕业。<br>这里是我的 AI 项目、开源改版和一些小工具。</p></div><section class="cards main-cards" id="projects" aria-label="主要项目"><div class="cards-content">{first}</div></section><section class="more-work"><h2>More Projects.</h2><div class="text-wrapper"><p>训练视频分析、课堂笔记、开发手册，以及影视创作技能包。<br>每个项目都保留了介绍、来源和可以体验的演示。</p></div><div class="cards more-cards"><div class="cards-content">{more}</div></div></section></main>'''
     return page("张健航 • AI 产品经理","张健航，25岁，计算机应用技术专业毕业，AI产品经理。查看八个项目的介绍和演示。",content,base,canonical)
 def about():
     timeline="".join(f'<a class="project-history" href="../projects/{s}/"><strong>{e(name(BY[s]))}</strong><span>{e(BY[s]["kind"])}</span><span aria-hidden="true">↗</span></a>' for s in ("zhixu","model-atlas","boxing","notes"))
@@ -72,7 +73,7 @@ def about():
     content=f'''<main id="main"><h1 class="page-title">I'm Jianhang.</h1><section class="about-intro"><figure class="about-portrait"><img src="../assets/training-poster.png" alt="张健航日常拳击训练的视频截图" width="320" height="568"></figure><div><h2 class="display-heading">我是张健航，<br>一名 AI 产品经理。</h2><p>25 岁，计算机应用技术专业毕业。这里放了我的个人项目，也有基于现有项目做的改版。</p><p>知识库、模型资料站、游戏创作工具，还有用来复盘拳击动作的小原型，都可以在作品页里找到。</p></div></section><div class="project-history-list">{timeline}</div><section class="about-topics"><h2 class="display-heading">我在做的几件事。</h2><p>每个项目页里都写了具体用途、实现和原作来源，也保留了对应的演示。</p><div class="topic-grid">{topics}</div></section><section class="about-ending text-wrapper"><p>平时我也练拳击。我拍了自己的训练视频，试着提取骨架和重心，再把结果叠回视频，方便逐拳回看。现在还是个二维分析的小原型。</p><div class="about-pictures"><img src="../assets/training-poster.png" alt="日常训练" loading="lazy"><img src="../assets/screens/boxing-analysis.png" alt="训练分析图表" loading="lazy"></div></section></main>'''
     return page("About • 张健航","张健航，25岁，计算机应用技术专业毕业，AI产品经理。",content,"../","about/",active="about")
 def play():
-    content=f'''<main id="main"><h1 class="page-title">A little Play.</h1><div class="text-wrapper"><p class="hero-description">试试头像、看看训练标注，或者玩一段简单的接星星示意。</p></div><div class="play-grid"><a href="../projects/grok-fat/#demo">{visual(BY["grok-fat"],"../")}<h2>Fat 头像</h2><p>六款头像与动态预览。</p></a><a href="../projects/boxing/#demo">{visual(BY["boxing"],"../")}<h2>拳击动作分析</h2><p>播放骨架与重心标注片段。</p></a><a href="../projects/cash/#demo">{visual(BY["cash"],"../")}<h2>游戏创作与试玩</h2><p>查看流程，再试一段本站实现的接星星玩法。</p></a></div></main>'''
+    content=f'''<main id="main"><h1 class="page-title">A little Play.</h1><div class="text-wrapper"><p class="hero-description">试试头像、看看训练标注和创作示例，或者玩一段接星星示意。</p></div><div class="play-grid"><a href="../projects/grok-fat/#demo">{visual(BY["grok-fat"],"../")}<h2>Fat 头像</h2><p>六款头像与动态预览。</p></a><a href="../projects/boxing/#demo">{visual(BY["boxing"],"../")}<h2>拳击动作分析</h2><p>播放骨架与重心标注片段。</p></a><a href="../projects/cash/#demo">{visual(BY["cash"],"../")}<h2>游戏创作与试玩</h2><p>查看流程，再试一段本站实现的接星星玩法。</p></a><a href="../projects/toonflow/#demo">{visual(BY["toonflow"],"../")}<h2>Toonflow Skills</h2><p>查看剧本试跑、角色与场景设定，选择安装分组。</p></a></div></main>'''
     return page("Play • 张健航","现有项目里的头像、视频与玩法示意。",content,"../","play/",active="play")
 def case(p,index):
     nxt=BY[ORDER[(index+1)%len(ORDER)]]
@@ -91,7 +92,11 @@ def case(p,index):
 def references():
     content='''<main id="main"><h1 class="page-title">Colophon.</h1><div class="reading-page"><h2>页面参考</h2><p>本版按 <a href="https://www.seanhalpin.xyz/" target="_blank" rel="noopener">Seán Halpin 的公开网站</a>核对布局、色板、导航、卡片比例与响应式规则，用张健航的信息和项目内容重新实现。</p><h2>字体</h2><p>原站标题为 Acorn Semibold，正文为 GT Planar Regular，均为商业字款。本网站使用可公开部署的 Bricolage Grotesque 与 DM Sans 近似替代，保留 OFL 许可。中文采用系统字体。</p><p><a href="content/font-sources.md">字体来源与许可</a></p><h2>项目与素材</h2><p>八个项目的介绍、源码、原作归属与演示保留。项目界面、训练片段和头像来自本人提供或公开仓库中的原有素材。首页图像已替换为自己的项目内容。</p><p>模型全景资料快照为 2026-11-06。其余演示各自保留固定示例、界面预览或视频范围说明。</p><p><a href="content/SOURCES.md">项目资料与许可</a> · <a href="assets/manifest.json">媒体来源</a> · <a href="https://github.com/z2302743489/z2302743489.github.io" target="_blank" rel="noopener">网站源码</a></p></div></main>'''
     return page("Colophon • 张健航","网站参考、字体、项目资料与媒体来源。",content,canonical="references.html")
-(ROOT/"index.html").write_text(home())
+parser=argparse.ArgumentParser(description="更新作品列表和项目页，默认保留独立维护的首页。")
+parser.add_argument("--include-home",action="store_true",help="显式生成旧版作品首页，替换 index.html。")
+args=parser.parse_args()
+if args.include_home or not (ROOT/"index.html").exists():
+    (ROOT/"index.html").write_text(home())
 for folder in ("work","about","play"):(ROOT/folder).mkdir(exist_ok=True)
 (ROOT/"work/index.html").write_text(home("../","work/"))
 (ROOT/"about/index.html").write_text(about())
@@ -100,6 +105,7 @@ for i,s in enumerate(ORDER):
     folder=ROOT/"projects"/s;folder.mkdir(parents=True,exist_ok=True)
     (folder/"index.html").write_text(case(BY[s],i))
 (ROOT/"references.html").write_text(references())
+(ROOT/"projects/portfolio/index.html").write_text('''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=../toonflow/"><link rel="canonical" href="https://z2302743489.github.io/projects/toonflow/"><title>项目已更新 · Toonflow Skills</title></head><body><p>这个项目入口已更新为 <a href="../toonflow/">Toonflow Skills · AI 影视创作技能包</a>。</p></body></html>''')
 (ROOT/"404.html").write_text(page("页面没找到 • 张健航","返回个人网站。",'<main id="main"><h1 class="page-title">Not found.</h1><div class="text-wrapper"><p class="hero-description"><a href="/">返回首页</a></p></div></main>',"/","404.html"))
 (ROOT/".nojekyll").touch()
-print("Built Sean-layout homepage, Work, About, Play, 8 project pages, Colophon and 404.")
+print("Built Work, About, Play, 8 project pages, Colophon, legacy redirect and 404; retained existing landing page.")

@@ -426,6 +426,16 @@
       "bytes": 62556,
       "sha256": "aa530716b0d351866af7dbfa3eee4120fb36f2d071baff8c234185141865c7ff",
       "transformation": "Unmodified Latin WOFF2 subset; renamed local file only."
+    },
+    {
+      "path": "assets/covers/toonflow-skills-v1.png",
+      "source_type": "builtin_imagegen",
+      "source_context": "Toonflow Skills screenplay, character and storyboard concept cover; not an application screenshot.",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2803031,
+      "sha256": "b742c4535d7cd247beb159b076764730b7b7b255f9efd9af1a9a4d1a8850099a",
+      "generation_record": "https://github.com/z2302743489/toonflow-skills/blob/d4b53ced4eb0d83ebba146833c3c3bfbcd190517/README.md"
     }
   ],
   "atlas_demo": {

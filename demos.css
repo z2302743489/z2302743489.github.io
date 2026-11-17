@@ -70,6 +70,18 @@
 .mini-card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px;font-size:12px}
 .source-status{font-size:11px;color:var(--muted);padding-top:13px}
 .demo-output:empty{display:none}
+.toonflow-tabs{margin-bottom:24px}
+.toonflow-options{margin:18px 0}
+.toonflow-transcript{max-height:420px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:18px;margin-top:14px;background:var(--bg);border:1px solid var(--line);border-radius:12px;font-size:14px;line-height:1.9}
+.toonflow-install-summary{margin-top:18px}
+.toonflow-command{white-space:pre-wrap;overflow-wrap:anywhere;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:8px;margin:14px 0!important;font-size:12px;line-height:1.8}
+.toonflow-command code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.toonflow-invocation-title{margin-top:24px}
+.toonflow-module-list{margin-top:22px}
+.toonflow-module-list summary{cursor:pointer;font-size:13px}
+.toonflow-module-list ul{max-height:220px;overflow:auto;padding-left:20px}
+.toonflow-module-list code{overflow-wrap:anywhere;font-size:11px}
+.toonflow-source{margin-top:24px!important;padding-top:16px;border-top:1px solid var(--line)}
 @media(max-width:800px){.embed-demo{height:620px}}
 @media(max-width:620px){.demo-top{padding:11px 13px;font-size:11px;align-items:flex-start}
 .demo-top span{font-size:10px;text-align:right}

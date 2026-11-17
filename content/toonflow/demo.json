@@ -1,0 +1,208 @@
+{
+  "title": "末班车",
+  "duration": "约 3 分钟",
+  "source": "https://github.com/z2302743489/toonflow-skills/blob/d4b53ced4eb0d83ebba146833c3c3bfbcd190517/examples/textProduction.md",
+  "sourceCommit": "d4b53ced4eb0d83ebba146833c3c3bfbcd190517",
+  "license": "MIT; Copyright (c) 2026 HBAI-Ltd",
+  "scenes": [
+    {
+      "title": "场01｜内景｜末班公交车，槐树巷终点站｜夜",
+      "text": "公交车停稳。陈川拉好手刹，关掉车头的线路灯。\n\n驾驶台上放着一个印有“光荣退休”的红色信封。手机亮了一下，是女儿发来的消息。\n\n手机文字：爸，面好了，等你回来一起吃。\n\n陈川回了个“好”，收起手机。\n\n陈川： 终点站了。\n\n没人回答。\n\n他从后视镜里看见，后排靠窗还坐着一个女人。蓝布外套，旧帆布包，正把包口捂在怀里。\n\n林秀： 师傅，是槐树巷吧？\n\n陈川的手停在开门键上。\n\n女人站起来，走到前门。她的左袖口补着一块浅色布，耳垂下有一颗小痣。\n\n林秀： 我睡过站了？\n\n陈川： 没有……到了。\n\n他打开车门。林秀扶着栏杆，准备下车。\n\n陈川： 等一下。\n\n林秀回头。\n\n陈川： 您坐会儿。外头……冷。\n\n他起身，走近两步，又停下。\n\n林秀： 没事，就几步路。孩子一个人在家呢。\n\n陈川： 多大了？\n\n林秀： 七岁。胆子小，嘴还硬。每回都说不用留灯，我一推门，他就坐灯底下。\n\n陈川低下头，手掌撑住座椅靠背。\n\n陈川： 后来就不怕了。\n\n林秀： 什么？\n\n陈川： 他后来……自己也能睡了。还当了司机，开了一辈子车。\n\n林秀看着他。\n\n陈川： 没出过事。明天就退休了。\n\n他试着笑，没笑出来。\n\n陈川： 就是这些事，一直没机会跟他妈说。\n\n林秀的目光落到他的右手。虎口有一道弯弯的旧疤。\n\n她慢慢伸出手，翻过他的手掌。\n\n林秀： 玻璃碴划的……你还说不疼。\n\n陈川点头。\n\n陈川： 妈。\n\n林秀捏着那只已经比自己苍老的手，半晌才摸了摸他的白发。\n\n林秀： 小川？\n\n陈川把额头抵在她肩上。她抬起双臂，抱住他。\n\n车门敞着。远处响起一声自行车铃。\n\n陈川抬头，望向门外。"
+    },
+    {
+      "title": "场02｜外景｜槐树巷终点站及旧院门｜夜，连续",
+      "text": "车门外，现代站棚的白光变成一盏昏黄的门灯。围墙还没有拆，墙边靠着一辆旧自行车。\n\n院门里，一扇小窗亮着灯。\n\n林秀看向那扇窗，松开陈川。\n\n陈川： 再坐一会儿吧。\n\n她没有迈下台阶。\n\n陈川： 我现在养得起您了。\n\n林秀抓紧帆布包，望了望窗，又望着他。\n\n林秀： 可家里那个，还没长大呢。\n\n陈川顺着她的目光看过去。小窗的灯始终亮着。\n\n他让开车门。\n\n林秀从包里取出一个用纸包着的馒头，塞进他手中。\n\n林秀： 还温着。你也早点回家。\n\n陈川： 好。\n\n她下车，走到院门前，回头冲他摆了摆手。陈川也抬起手。\n\n林秀推门进去。\n\n门合上。门灯熄灭。"
+    },
+    {
+      "title": "场03｜内景｜公交车，槐树巷终点站｜夜，连续",
+      "text": "站棚的白光重新照进来。门外只有空荡荡的现代站台，旧院墙不见了。\n\n陈川站在车门边，手里还握着那个馒头。\n\n手机又亮起来。\n\n手机文字：还没收车？我给你重新下碗面。\n\n陈川按住语音键。\n\n陈川： 不用重下。我这就回家。\n\n他松开键，关好车门，按规程切断车辆电源。车厢灯一排排熄灭。\n\n最后一盏灯下，他把馒头放进饭盒，合上盖子，带着饭盒下车。\n\n全剧终。\n\n预计时长约3分钟。对白自然读演约1分40秒，其余留给认人、拥抱、母亲离开和末尾收车的动作与停顿。"
+    }
+  ],
+  "assets": [
+    {
+      "id": "chen",
+      "title": "陈川 · 公交司机",
+      "type": "角色设定",
+      "description": "59 岁，灰白短发，深灰蓝公交司机制服，右手虎口有弯曲旧疤。年龄、制服和疤痕保持一致。",
+      "details": [
+        "故事开始前，公交车已停稳并拉好手刹。",
+        "与林秀认亲、拥抱后，收车带着饭盒回家。",
+        "需要正面、侧面、背面与手部局部的参考设计。"
+      ]
+    },
+    {
+      "id": "lin",
+      "title": "林秀 · 年轻时的母亲",
+      "type": "角色设定",
+      "description": "28 岁，黑发低扎，耳垂下有小痣，蓝布外套左袖口有浅色补丁，带着旧帆布包。",
+      "details": [
+        "面容年轻，带有夜班后的疲倦。",
+        "小痣、袖口补丁、发型和帆布包需要保持一致。",
+        "是可以触碰、拥抱的实体人物，不加透明身体或光晕。"
+      ]
+    },
+    {
+      "id": "bus",
+      "title": "公交车内景",
+      "type": "场景设定",
+      "description": "车头左侧是驾驶位，右侧是前门，中央过道通向后排；前门旁留出两人站立的空间。",
+      "details": [
+        "深灰蓝座椅、磨旧的防滑地板和金属扶杆。",
+        "现代站棚白光与旧院门暖光都来自车门一侧。",
+        "门在故事前段打开，直到结尾收车才关闭。"
+      ]
+    },
+    {
+      "id": "stop",
+      "title": "槐树巷终点站",
+      "type": "场景设定",
+      "description": "现代站台与旧院门是同一地点的两种状态，保持车门落地位置和步行方向。",
+      "details": [
+        "现代版有站棚白灯、步行通道与普通城市街面。",
+        "旧时版有木院门、自行车、暖黄色门灯和亮灯小窗。",
+        "母亲进入院门、门灯熄灭后，环境恢复成现代站台。"
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "writing",
+      "label": "文字创作",
+      "count": 10,
+      "detail": "剧本、小说改编、分集、角色与场景设定、分镜和导演提示词。",
+      "skills": [
+        "one-line-screenplay",
+        "toonflow-story-development",
+        "toonflow-novel-adaptation",
+        "toonflow-series-planning",
+        "toonflow-visual-design",
+        "toonflow-character-assets",
+        "toonflow-scene-assets",
+        "toonflow-prop-assets",
+        "toonflow-storyboard",
+        "toonflow-seedance-director"
+      ],
+      "invocation": "$one-line-screenplay 把一句话创意写成有场次、动作、对白与结尾的短片剧本。"
+    },
+    {
+      "id": "creator",
+      "label": "创作者",
+      "count": 13,
+      "detail": "文字创作加制作总控、项目状态与媒体审阅。",
+      "skills": [
+        "one-line-screenplay",
+        "toonflow-story-development",
+        "toonflow-novel-adaptation",
+        "toonflow-series-planning",
+        "toonflow-visual-design",
+        "toonflow-character-assets",
+        "toonflow-scene-assets",
+        "toonflow-prop-assets",
+        "toonflow-storyboard",
+        "toonflow-seedance-director",
+        "toonflow-production",
+        "toonflow-project-state",
+        "toonflow-media-review"
+      ],
+      "invocation": "$toonflow-production 把创意整理成完整剧本和角色场景方案，先交付文字。"
+    },
+    {
+      "id": "tools",
+      "label": "工具与媒体",
+      "count": 12,
+      "detail": "画布、工作区、图片、视频、音频、拉片与后期，按任务连接真实工具。",
+      "skills": [
+        "toonflow-canvas",
+        "toonflow-workspace",
+        "toonflow-asset-library",
+        "toonflow-image-generation",
+        "toonflow-video-generation",
+        "toonflow-audio-production",
+        "toonflow-frame-analysis",
+        "toonflow-director3d",
+        "toonflow-postproduction",
+        "toonflow-research",
+        "toonflow-browser",
+        "toonflow-sandbox"
+      ],
+      "invocation": "$toonflow-video-generation 检查已连接的视频工具，按确认的提示词和范围生成。"
+    },
+    {
+      "id": "developer",
+      "label": "工程维护",
+      "count": 17,
+      "detail": "Agent、MCP、插件、客户端、部署和底层运行时开发指南。",
+      "skills": [
+        "toonflow-agent-runtime",
+        "toonflow-mcp",
+        "toonflow-a2a-teams",
+        "toonflow-node-development",
+        "toonflow-tool-development",
+        "toonflow-document-extension",
+        "toonflow-provider-adapter",
+        "toonflow-skill-management",
+        "toonflow-ui-workspace",
+        "toonflow-localization",
+        "toonflow-server-deployment",
+        "toonflow-desktop-client",
+        "toonflow-mobile-client",
+        "toonflow-update-release",
+        "toonflow-multi-tenant",
+        "toonflow-file-media-runtime",
+        "toonflow-ohos-client"
+      ],
+      "invocation": "$toonflow-mcp 根据当前宿主的实际工具和配置，检查 Toonflow MCP 的连接情况。"
+    },
+    {
+      "id": "all",
+      "label": "全部技能",
+      "count": 42,
+      "detail": "完整安装 42 个模块；媒体和工程任务仍需对应执行环境。",
+      "skills": [
+        "one-line-screenplay",
+        "toonflow-a2a-teams",
+        "toonflow-agent-runtime",
+        "toonflow-asset-library",
+        "toonflow-audio-production",
+        "toonflow-browser",
+        "toonflow-canvas",
+        "toonflow-character-assets",
+        "toonflow-desktop-client",
+        "toonflow-director3d",
+        "toonflow-document-extension",
+        "toonflow-file-media-runtime",
+        "toonflow-frame-analysis",
+        "toonflow-image-generation",
+        "toonflow-localization",
+        "toonflow-mcp",
+        "toonflow-media-review",
+        "toonflow-mobile-client",
+        "toonflow-multi-tenant",
+        "toonflow-node-development",
+        "toonflow-novel-adaptation",
+        "toonflow-ohos-client",
+        "toonflow-postproduction",
+        "toonflow-production",
+        "toonflow-project-state",
+        "toonflow-prop-assets",
+        "toonflow-provider-adapter",
+        "toonflow-research",
+        "toonflow-sandbox",
+        "toonflow-scene-assets",
+        "toonflow-seedance-director",
+        "toonflow-series-planning",
+        "toonflow-server-deployment",
+        "toonflow-skill-management",
+        "toonflow-story-development",
+        "toonflow-storyboard",
+        "toonflow-tool-development",
+        "toonflow-ui-workspace",
+        "toonflow-update-release",
+        "toonflow-video-generation",
+        "toonflow-visual-design",
+        "toonflow-workspace"
+      ],
+      "invocation": "$toonflow-production 先检查素材、已连接工具和交付范围，再规划制作阶段。"
+    }
+  ]
+}

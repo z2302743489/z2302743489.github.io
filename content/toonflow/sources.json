@@ -1,0 +1,17 @@
+{
+  "commit": "d4b53ced4eb0d83ebba146833c3c3bfbcd190517",
+  "files": [
+    {
+      "local": "content/toonflow/text-production.md",
+      "source": "https://github.com/z2302743489/toonflow-skills/blob/d4b53ced4eb0d83ebba146833c3c3bfbcd190517/examples/textProduction.md",
+      "sha256": "064ec747725e7d13682c4b6e833919360e3d48fa56b2878d4772b9345251a9be"
+    },
+    {
+      "local": "content/toonflow/LICENSE",
+      "source": "https://github.com/z2302743489/toonflow-skills/blob/d4b53ced4eb0d83ebba146833c3c3bfbcd190517/LICENSE",
+      "sha256": "e301150b3205cbb097e30c30e488f5a9ac9a70cbcfe819b8d486367812a53ef7"
+    }
+  ],
+  "presets_source": "https://github.com/z2302743489/toonflow-skills/blob/d4b53ced4eb0d83ebba146833c3c3bfbcd190517/suite.json",
+  "asset_and_scene_summaries": "Derived from the published textProduction.md; no media generation is represented."
+}

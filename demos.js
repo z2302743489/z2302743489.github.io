@@ -122,6 +122,52 @@
     document.addEventListener("visibilitychange",()=>{if(document.hidden&&running){running=false;cancelAnimationFrame(raf);status.textContent="已暂停，请重新开始。";}});
     paint();
   }
+  async function toonflow() {
+    const response=await fetch(base+"content/toonflow/demo.json");
+    if(!response.ok)throw Error("试跑示例暂时无法载入");
+    const d=await response.json();
+    shell("Toonflow Skills / 创作示例","仓库文字试跑与安装导览",`<div class="demo-tabs toonflow-tabs" role="group" aria-label="选择演示内容"><button data-toonflow-tab="scenes" aria-pressed="true">剧本试跑</button><button data-toonflow-tab="assets" aria-pressed="false">角色与场景</button><button data-toonflow-tab="install" aria-pressed="false">安装与调用</button></div>
+<section data-toonflow-panel="scenes"><h3>《${esc(d.title)}》</h3><p class="demo-caption">${esc(d.duration)} · 虚构短片 · 仓库已公开的文字试跑</p><div class="process-steps toonflow-options" role="group" aria-label="选择剧本场次">${d.scenes.map((s,i)=>`<button data-toonflow-scene="${i}" aria-pressed="${i===0}" class="${i===0?"active":""}">场次 ${i+1}</button>`).join("")}</div><h4 data-toonflow-scene-title aria-live="polite"></h4><div class="toonflow-transcript" data-toonflow-scene-output tabindex="0" role="region" aria-label="剧本场次正文"></div><div class="case-actions"><button class="button small secondary" data-toonflow-copy-scene>复制当前场次</button><a class="button small secondary" href="${base}content/toonflow/text-production.md" download="Toonflow-末班车文字试跑.md">下载完整试跑</a></div></section>
+<section data-toonflow-panel="assets" hidden><h3>同一份剧本的文字设计</h3><p class="demo-caption">依据仓库试跑中的角色、空间与连续性要求整理。</p><div class="process-steps toonflow-options" role="group" aria-label="选择设计对象">${d.assets.map((a,i)=>`<button data-toonflow-asset="${i}" aria-pressed="${i===0}" class="${i===0?"active":""}">${esc(a.title)}</button>`).join("")}</div><article class="demo-panel" data-toonflow-asset-output aria-live="polite"></article></section>
+<section data-toonflow-panel="install" hidden><label class="form-label" for="toonflow-preset">选择安装分组</label><select class="demo-input" id="toonflow-preset">${d.presets.map(p=>`<option value="${esc(p.id)}">${esc(p.label)} · ${p.count} 个 Skill</option>`).join("")}</select><article class="demo-panel toonflow-install-summary"><h3 data-toonflow-preset-title aria-live="polite"></h3><p data-toonflow-preset-detail></p><p class="demo-caption">需要 Python 3.9+ 和支持本地 Skill 的 AI Agent。</p><pre class="toonflow-command" tabindex="0"><code data-toonflow-command></code></pre><button class="button small secondary" data-toonflow-copy-install>复制安装命令</button><h4 class="toonflow-invocation-title">在 Agent 中调用</h4><pre class="toonflow-command" tabindex="0"><code data-toonflow-invocation></code></pre><button class="button small secondary" data-toonflow-copy-invocation>复制调用示例</button><details class="toonflow-module-list"><summary>查看本组包含的 Skill</summary><ul data-toonflow-modules></ul></details></article><p class="demo-caption">图片、视频、音频生成与画布操作需另行连接对应工具及模型服务。${link("https://github.com/z2302743489/toonflow-skills/blob/"+d.sourceCommit+"/docs/dependencies.md","查看逐项依赖")}</p></section>
+<p class="demo-caption toonflow-source">${link(d.source,"查看仓库试跑原文")} · ${link("https://github.com/z2302743489/toonflow-skills","项目仓库")}<br>第三方 Toonflow 技能整理 · MIT · 原作者 HBAI-Ltd</p>`);
+    let sceneIndex=0;
+    let selectedPreset=d.presets[0];
+    function showScene(index) {
+      sceneIndex=index;
+      root.querySelector("[data-toonflow-scene-title]").textContent=d.scenes[index].title;
+      root.querySelector("[data-toonflow-scene-output]").textContent=d.scenes[index].text;
+      root.querySelector("[data-toonflow-scene-output]").scrollTop=0;
+      root.querySelectorAll("[data-toonflow-scene]").forEach(b=>{const active=Number(b.dataset.toonflowScene)===index;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+    }
+    function showAsset(index) {
+      const a=d.assets[index];
+      root.querySelector("[data-toonflow-asset-output]").innerHTML=`<p class="demo-caption">${esc(a.type)}</p><h3>${esc(a.title)}</h3><p>${esc(a.description)}</p>${list(a.details)}`;
+      root.querySelectorAll("[data-toonflow-asset]").forEach(b=>{const active=Number(b.dataset.toonflowAsset)===index;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+    }
+    function installCommand(preset) {
+      return "git clone https://github.com/z2302743489/toonflow-skills.git\ncd toonflow-skills\npython3 scripts/install.py --preset "+preset.id;
+    }
+    function showPreset(id) {
+      selectedPreset=d.presets.find(p=>p.id===id);
+      root.querySelector("[data-toonflow-preset-title]").textContent=selectedPreset.label+" · "+selectedPreset.count+" 个 Skill";
+      root.querySelector("[data-toonflow-preset-detail]").textContent=selectedPreset.detail;
+      root.querySelector("[data-toonflow-command]").textContent=installCommand(selectedPreset);
+      root.querySelector("[data-toonflow-invocation]").textContent=selectedPreset.invocation;
+      root.querySelector("[data-toonflow-modules]").innerHTML=selectedPreset.skills.map(name=>`<li><code>${esc(name)}</code></li>`).join("");
+    }
+    root.querySelectorAll("[data-toonflow-tab]").forEach(b=>b.addEventListener("click",()=>{
+      pressed("[data-toonflow-tab]",b);
+      root.querySelectorAll("[data-toonflow-panel]").forEach(panel=>{panel.hidden=panel.dataset.toonflowPanel!==b.dataset.toonflowTab;});
+    }));
+    root.querySelectorAll("[data-toonflow-scene]").forEach(b=>b.addEventListener("click",()=>showScene(Number(b.dataset.toonflowScene))));
+    root.querySelectorAll("[data-toonflow-asset]").forEach(b=>b.addEventListener("click",()=>showAsset(Number(b.dataset.toonflowAsset))));
+    root.querySelector("#toonflow-preset").addEventListener("change",ev=>showPreset(ev.target.value));
+    root.querySelector("[data-toonflow-copy-scene]").addEventListener("click",()=>window.portfolioCopy(d.scenes[sceneIndex].title+"\n\n"+d.scenes[sceneIndex].text+"\n\n来源："+d.source));
+    root.querySelector("[data-toonflow-copy-install]").addEventListener("click",()=>window.portfolioCopy(installCommand(selectedPreset)));
+    root.querySelector("[data-toonflow-copy-invocation]").addEventListener("click",()=>window.portfolioCopy(selectedPreset.invocation));
+    showScene(0);showAsset(0);showPreset(d.presets[0].id);
+  }
   function portfolio() {
     shell("这个网站 / 响应式体验","调整宽度，观察内容重排",`<label class="form-label" for="preview-width">预览宽度 <output data-width-output>620 px</output></label><input id="preview-width" type="range" min="260" max="700" value="620" style="width:100%;accent-color:var(--brand)"><div class="mini-portfolio" style="width:620px;max-width:100%;margin:20px auto 0"><p class="eyebrow">张健航 / 个人网站</p><h3>张健航</h3><p style="font-size:12px;color:var(--muted)">拖动上方滑块，看看项目列表如何换行。</p><div class="mini-card-list"><a class="mini-card" href="../zhixu/"><strong>知序 · 企业知识库 ↗</strong><p>文档管理与带引用的问答</p></a><a class="mini-card" href="../model-atlas/"><strong>模型全景 ↗</strong><p>查找与对比大模型资料</p></a></div></div><div class="media-controls"><button class="button small secondary" data-preview-theme>切换全站深浅主题 ◐</button><a class="button small secondary" href="${base}#projects">浏览全部项目 →</a></div>`);
     root.querySelector("input").addEventListener("input",ev=>{const w=Number(ev.target.value);root.querySelector("[data-width-output]").textContent=w+" px";root.querySelector(".mini-portfolio").style.width=w+"px";root.querySelector(".mini-card-list").style.gridTemplateColumns=w<440?"1fr":"repeat(2,1fr)";});
@@ -132,6 +178,7 @@
     if(type==="avatars")return avatars();
     if(type==="boxing")return boxing();
     if(type==="game")return game();
+    if(type==="toonflow")return toonflow();
     if(type==="portfolio")return portfolio();
     const response=await fetch(base+"content/fixtures.json");
     if(!response.ok)throw Error("示例资料暂时无法载入");
