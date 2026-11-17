@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SITE=json.loads((ROOT/"site.json").read_text())
 PROJECTS=json.loads((ROOT/"content/projects.json").read_text())["projects"]
 BY={p["slug"]:p for p in PROJECTS}
-VERSION="20261116-sean-1"
+VERSION="20261116-image-fit-2"
 ORDER=["zhixu","model-atlas","cash","grok-fat","boxing","notes","launch-kit","portfolio"]
 CARD={
  "zhixu":("知序","AI 问答","#d094e5",1,10),
@@ -42,6 +42,7 @@ def page(title,desc,content,base="./",canonical="",demo=None,active="work"):
     djs=f'<script defer src="{base}demos.js?v={VERSION}"></script>' if demo else ""
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="theme-color" content="#ede7de"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:image" content="{SITE["url"]}assets/screens/zhixu-chat.png"><link rel="canonical" href="{SITE["url"]}{canonical}"><link rel="icon" href="{base}favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{base}assets/fonts/fonts.css"><link rel="preload" href="{base}assets/fonts/bricolage-grotesque-latin-variable.woff2" as="font" type="font/woff2" crossorigin><script>try{{if(localStorage.getItem('jh-theme')==='dark')document.documentElement.dataset.theme='dark'}}catch(e){{}}</script>{dcss}<link rel="stylesheet" href="{base}style.css?v={VERSION}"><script defer src="{base}app.js?v={VERSION}"></script>{djs}</head><body data-base="{base}"{demoattrs}><div class="aura" aria-hidden="true"><canvas width="32" height="32"></canvas><div class="aura-mask"></div></div>{header(base,active)}{content}{footer(base)}{overlays(base)}</body></html>'''
 def screen(p):return {"zhixu":"zhixu-chat.png","model-atlas":"model-atlas-live.jpg","cash":"cash-dark.png","grok-fat":"grok-app.jpg","boxing":"boxing-analysis.png"}.get(p["slug"])
+SCREEN_SIZES={"zhixu":(1106,664),"model-atlas":(1280,720),"cash":(1800,1016),"grok-fat":(1280,720)}
 def visual(p, base="./", lazy=True):
     slug=p["slug"]
     loading='loading="lazy"' if lazy else 'fetchpriority="high"'
@@ -53,7 +54,8 @@ def visual(p, base="./", lazy=True):
         return f'''<div class="media-visual portfolio-visual" role="img" aria-label="张健航个人网站的姓名与训练画面"><img src="{base}assets/training-poster.png" alt="" {loading}><span>张健航</span><small>AI 产品经理 / 个人作品</small></div>'''
     if slug=="boxing":
         return f'''<div class="media-visual analysis-visual"><img class="analysis-person" src="{base}assets/boxing-poster.jpg" alt="训练中的骨架与重心标注" {loading}><img class="analysis-chart" src="{base}assets/screens/boxing-analysis.png" alt="训练重心与逐拳分析图表" {loading}></div>'''
-    return f'<div class="media-visual screen-visual media-{slug}"><img src="{base}assets/screens/{screen(p)}" alt="{e(name(p))}实际项目界面" {loading} width="1440" height="900"></div>'
+    width,height=SCREEN_SIZES[slug]
+    return f'<div class="media-visual screen-visual media-{slug}"><img src="{base}assets/screens/{screen(p)}" alt="{e(name(p))}实际项目界面" {loading} width="{width}" height="{height}"></div>'
 
 def card(p,base="./"):
     brand,title,color,start,end=CARD[p["slug"]]
