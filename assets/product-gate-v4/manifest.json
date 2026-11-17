@@ -1,0 +1,326 @@
+{
+  "version": 4,
+  "product": {
+    "name": "观戏",
+    "href": "http://127.0.0.1:7107/"
+  },
+  "textures": {
+    "theatre": "assets/product-gate-v3/theatre-source.png"
+  },
+  "papers": [
+    {
+      "id": "upload",
+      "label": "上传",
+      "src": "assets/product-gate-v3/paper-upload.png",
+      "index": 0,
+      "labelRegion": {
+        "ink": [
+          0.18559536735432502,
+          0.58,
+          0.814404632645675,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1647620340209917,
+          0.5633333333333334,
+          0.8352379659790083,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "deconstruct",
+      "label": "拆剧",
+      "src": "assets/product-gate-v3/paper-deconstruct.png",
+      "index": 1,
+      "labelRegion": {
+        "ink": [
+          0.18836712913553894,
+          0.58,
+          0.8116328708644611,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1675337958022056,
+          0.5633333333333334,
+          0.8324662041977945,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "rewrite",
+      "label": "改本",
+      "src": "assets/product-gate-v3/paper-rewrite.png",
+      "index": 2,
+      "labelRegion": {
+        "ink": [
+          0.18871453900709223,
+          0.58,
+          0.8112854609929078,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1678812056737589,
+          0.5633333333333334,
+          0.8321187943262411,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "diagnose",
+      "label": "诊断",
+      "src": "assets/product-gate-v3/paper-diagnose.png",
+      "index": 3,
+      "labelRegion": {
+        "ink": [
+          0.1869631495227996,
+          0.58,
+          0.8130368504772003,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1661298161894663,
+          0.5633333333333334,
+          0.8338701838105337,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "export",
+      "label": "导出",
+      "src": "assets/product-gate-v3/paper-export.png",
+      "index": 4,
+      "labelRegion": {
+        "ink": [
+          0.20007600143061519,
+          0.58,
+          0.7999239985693848,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.17924266809728184,
+          0.5633333333333334,
+          0.820757331902718,
+          0.84
+        ]
+      }
+    }
+  ],
+  "flights": {
+    "desktop": [
+      {
+        "id": "upload",
+        "y": 2.358434940814796,
+        "z": -6,
+        "width": 0.6782427280774578,
+        "duration": 52,
+        "initialPhase": 0.06,
+        "bob": 0.0770730372815293,
+        "referenceScreenRow": 0.16
+      },
+      {
+        "id": "deconstruct",
+        "y": 1.702613459946511,
+        "z": -8.5,
+        "width": 0.8323888026405165,
+        "duration": 61,
+        "initialPhase": 0.27,
+        "bob": 0.09458963666369505,
+        "referenceScreenRow": 0.3
+      },
+      {
+        "id": "rewrite",
+        "y": 0.6053736746476482,
+        "z": -11,
+        "width": 0.986534877203575,
+        "duration": 68,
+        "initialPhase": 0.48,
+        "bob": 0.1121062360458608,
+        "referenceScreenRow": 0.44
+      },
+      {
+        "id": "diagnose",
+        "y": -0.9585083181921094,
+        "z": -14,
+        "width": 1.1715101666792451,
+        "duration": 56,
+        "initialPhase": 0.69,
+        "bob": 0.1331261553044597,
+        "referenceScreenRow": 0.58
+      },
+      {
+        "id": "export",
+        "y": -3.1908237434553124,
+        "z": -18,
+        "width": 1.4181438859801392,
+        "duration": 64,
+        "initialPhase": 0.9,
+        "bob": 0.16115271431592493,
+        "referenceScreenRow": 0.72
+      }
+    ],
+    "mobile": [
+      {
+        "id": "upload",
+        "y": 1.4405402973937982,
+        "z": -6,
+        "width": 0.5765998332027236,
+        "duration": 52,
+        "initialPhase": 0.06,
+        "bob": 0.05605831711693146,
+        "referenceScreenRow": 0.085
+      },
+      {
+        "id": "deconstruct",
+        "y": 1.1457685151208916,
+        "z": -8.5,
+        "width": 0.7144438313393835,
+        "duration": 61,
+        "initialPhase": 0.27,
+        "bob": 0.06945981693577338,
+        "referenceScreenRow": 0.185
+      },
+      {
+        "id": "rewrite",
+        "y": 0.5296052622345652,
+        "z": -11,
+        "width": 0.853151932904177,
+        "duration": 68,
+        "initialPhase": 0.48,
+        "bob": 0.08294532681012833,
+        "referenceScreenRow": 0.285
+      },
+      {
+        "id": "diagnose",
+        "y": -0.39955540433060627,
+        "z": -14,
+        "width": 1.0201118624175654,
+        "duration": 56,
+        "initialPhase": 0.69,
+        "bob": 0.09917754217948552,
+        "referenceScreenRow": 0.385
+      },
+      {
+        "id": "export",
+        "y": -1.7618372817253583,
+        "z": -18,
+        "width": 1.2430568816293548,
+        "duration": 64,
+        "initialPhase": 0.9,
+        "bob": 0.12085275238063173,
+        "referenceScreenRow": 0.485
+      }
+    ]
+  },
+  "portal": {
+    "geometry": "assets/geometry/story/common/circle.bin",
+    "sourcePlane": "XZ",
+    "radius": 1,
+    "position": [
+      12.605,
+      2.956,
+      -48.23
+    ],
+    "rotationDegrees": [
+      90,
+      0,
+      17.98
+    ],
+    "scale": [
+      2.666,
+      1.221,
+      2.464
+    ],
+    "titleLocal": [
+      0,
+      2.86,
+      1
+    ],
+    "titleSize": [
+      2.64,
+      0.83
+    ],
+    "artSize": [
+      1.98,
+      1.98
+    ],
+    "enterDesktop": [
+      1.87,
+      -0.03,
+      0.82
+    ],
+    "enterMobile": [
+      0,
+      -0.72,
+      0.08
+    ],
+    "enterSize": [
+      1.42,
+      0.43
+    ],
+    "keepOriginalGeometry": true,
+    "titleRemoved": true,
+    "oldEnterPaperRemoved": true,
+    "sourceImageFullAspect": 2.3276190476190477,
+    "theatreUvSize": [
+      0.86,
+      0.39976612483261414
+    ],
+    "contained": {
+      "canvas": [
+        2048,
+        2048
+      ],
+      "image": [
+        1731,
+        743
+      ],
+      "cornersInsideRadius": 942.08
+    },
+    "stoneRemoved": true
+  },
+  "source": {
+    "font": "STSongti-SC-Bold",
+    "inputImagePath": "/var/folders/x_/vq9lc8353479_6l2x9zldfsw0000gn/T/codex-clipboard-f42746ca-a3db-4afc-baa2-27833d165728.png",
+    "inputImageSha256": "c7d8b048219ab9d839cd3c8cb9ca2f06aa5a54b4b2c97ed12ee84500fb1021dd",
+    "inputDimensions": [
+      2444,
+      1050
+    ],
+    "inputImagePreservedByteIdentical": true,
+    "noImageGeneration": true,
+    "stepsSha256": "919ae21d70eb02423d1af98caf82184c5052956dc55e67a9ced03ac376fce6dd",
+    "staticTitlePlateCreated": false
+  },
+  "motion": {
+    "direction": "left-to-right",
+    "continuous": true,
+    "opacity": 1,
+    "durationSeconds": [
+      45,
+      70
+    ],
+    "wrap": "entire conservatively bounded curved mesh outside the right viewport; re-entry entirely outside left",
+    "subdivisions": [
+      12,
+      16
+    ],
+    "referenceViewports": {
+      "desktop": [
+        1440,
+        900,
+        3
+      ],
+      "mobile": [
+        390,
+        844,
+        3.125
+      ]
+    },
+    "usesNativeDepthOcclusion": true,
+    "noCharacterAvoidance": true
+  }
+}

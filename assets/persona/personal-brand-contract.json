@@ -1,0 +1,363 @@
+{
+  "title": "张健航\nPERSONAL PROFILE",
+  "dimensions": {
+    "width": 1024,
+    "height": 512
+  },
+  "englishFont": {
+    "file": "dist/assets/fonts/CharlesRosie.ttf",
+    "postScriptName": "CharlesRosie-Regular",
+    "chineseGlyphsAvailable": false
+  },
+  "chineseFont": {
+    "source": "/System/Library/Fonts/Supplemental/Songti.ttc",
+    "postScriptName": "STSongti-SC-Light",
+    "deployment": "Only these three title glyphs are converted into paths; no system font file is deployed."
+  },
+  "wordmark": {
+    "source": "Newly authored monoline SVG paths",
+    "stroke": 1.75,
+    "viewBox": [
+      0,
+      0,
+      168,
+      120
+    ]
+  },
+  "headers": {
+    "desktop": {
+      "width": 286,
+      "height": 120,
+      "badge": {
+        "x": 3,
+        "y": 7,
+        "size": 106
+      }
+    },
+    "mobile": {
+      "width": 168,
+      "height": 120,
+      "badge": {
+        "x": 1,
+        "y": 33,
+        "size": 54
+      }
+    },
+    "pngRasterScale": 2,
+    "badgeEmbedded": true,
+    "badgeSource": "dist/assets/persona/personal-badge.png"
+  },
+  "lineLayouts": [
+    {
+      "text": "张健航",
+      "font": "STSongti-SC-Light",
+      "row": 0,
+      "scale": 0.16227608008429925,
+      "originX": 267.0442571127503,
+      "baseline": 198.76396206533192,
+      "inkBounds": {
+        "left": 275.48261327713385,
+        "top": 73,
+        "width": 473.0347734457323,
+        "height": 154
+      },
+      "advanceCount": 3
+    },
+    {
+      "text": "PERSONAL PROFILE",
+      "font": "CharlesRosie-Regular",
+      "row": 1,
+      "scale": 0.14011106364801368,
+      "originX": 16.497223408799602,
+      "baseline": 390.47885519008975,
+      "inkBounds": {
+        "left": 19.999999999999943,
+        "top": 291,
+        "width": 984.0000000000001,
+        "height": 101.16018795386587
+      },
+      "advanceCount": 16
+    }
+  ],
+  "geometry": {
+    "schema": "Original BufferGeometry JSON attribute schema",
+    "vertices": 72,
+    "indices": 108,
+    "quads": 18,
+    "worldMapping": "x = pixelX/512 - 1; y = (256-pixelY)/512; z=0",
+    "uv": "u=pixelX/1024; v=1-pixelY/512",
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "glyphs": [
+      {
+        "character": "张",
+        "row": 0,
+        "charindex": 0,
+        "charsperline": 3,
+        "pixelBounds": {
+          "left": 272.48261327713385,
+          "top": 71.94731296101159,
+          "right": 426.3161222339305,
+          "bottom": 228.2149631190727
+        },
+        "vertexStart": 0
+      },
+      {
+        "character": "健",
+        "row": 0,
+        "charindex": 1,
+        "charsperline": 3,
+        "pixelBounds": {
+          "left": 429.5658587987356,
+          "top": 71.7850368809273,
+          "right": 590.7017913593256,
+          "bottom": 227.8904109589041
+        },
+        "vertexStart": 4
+      },
+      {
+        "character": "航",
+        "row": 0,
+        "charindex": 2,
+        "charsperline": 3,
+        "pixelBounds": {
+          "left": 592.3287671232877,
+          "top": 70,
+          "right": 751.5173867228661,
+          "bottom": 230
+        },
+        "vertexStart": 8
+      },
+      {
+        "character": "P",
+        "row": 1,
+        "charindex": 0,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 16.999999999999943,
+          "top": 289.40111063648015,
+          "right": 77.08287056813323,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 12
+      },
+      {
+        "character": "E",
+        "row": 1,
+        "charindex": 1,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 76.40709098675774,
+          "top": 289.40111063648015,
+          "right": 127.52285348141814,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 16
+      },
+      {
+        "character": "R",
+        "row": 1,
+        "charindex": 2,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 127.96796240922677,
+          "top": 289.40111063648015,
+          "right": 189.4519436138402,
+          "bottom": 394.60238730424834
+        },
+        "vertexStart": 20
+      },
+      {
+        "character": "S",
+        "row": 1,
+        "charindex": 3,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 189.33282150155276,
+          "top": 288,
+          "right": 248.31296071150828,
+          "bottom": 394.8799658265699
+        },
+        "vertexStart": 24
+      },
+      {
+        "character": "O",
+        "row": 1,
+        "charindex": 4,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 247.48269970098247,
+          "top": 288,
+          "right": 359.6868859461768,
+          "bottom": 395.1601879538659
+        },
+        "vertexStart": 28
+      },
+      {
+        "character": "N",
+        "row": 1,
+        "charindex": 5,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 359.29132849209736,
+          "top": 289.40111063648015,
+          "right": 429.74241777018364,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 32
+      },
+      {
+        "character": "A",
+        "row": 1,
+        "charindex": 6,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 428.6463049978641,
+          "top": 289.40111063648015,
+          "right": 495.7347287483981,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 36
+      },
+      {
+        "character": "L",
+        "row": 1,
+        "charindex": 7,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 494.63861597607854,
+          "top": 289.40111063648015,
+          "right": 549.1170439982914,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 40
+      },
+      {
+        "character": "P",
+        "row": 1,
+        "charindex": 9,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 585.7108073472875,
+          "top": 289.40111063648015,
+          "right": 645.7936779154207,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 44
+      },
+      {
+        "character": "R",
+        "row": 1,
+        "charindex": 10,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 645.1178983340453,
+          "top": 289.40111063648015,
+          "right": 706.6018795386587,
+          "bottom": 394.60238730424834
+        },
+        "vertexStart": 48
+      },
+      {
+        "character": "O",
+        "row": 1,
+        "charindex": 11,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 705.5057667663392,
+          "top": 288,
+          "right": 817.7099530115336,
+          "bottom": 395.1601879538659
+        },
+        "vertexStart": 52
+      },
+      {
+        "character": "F",
+        "row": 1,
+        "charindex": 12,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 817.3143955574541,
+          "top": 289.40111063648015,
+          "right": 868.4301580521145,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 56
+      },
+      {
+        "character": "I",
+        "row": 1,
+        "charindex": 13,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 867.193934216147,
+          "top": 289.40111063648015,
+          "right": 900.2353695002137,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 60
+      },
+      {
+        "character": "L",
+        "row": 1,
+        "charindex": 14,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 901.2409226826143,
+          "top": 289.40111063648015,
+          "right": 955.7193507048271,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 64
+      },
+      {
+        "character": "E",
+        "row": 1,
+        "charindex": 15,
+        "charsperline": 16,
+        "pixelBounds": {
+          "left": 955.8842375053397,
+          "top": 289.40111063648015,
+          "right": 1007,
+          "bottom": 393.47885519008975
+        },
+        "vertexStart": 68
+      }
+    ]
+  },
+  "distance": {
+    "method": "Exact two-pass Euclidean signed distance",
+    "boundaryValue": 0.5,
+    "spreadPixels": 8,
+    "insideOpacityThreshold": 128,
+    "minimumInsideNormalizedValue": 0.5607843137254902,
+    "finalShaderRequires": ">0.2 inside opacity",
+    "inkPixels": 52263
+  },
+  "invariants": [
+    "No original assets were modified.",
+    "No app, index or footer file was modified.",
+    "No THE or third title row.",
+    "Chinese row0 has charindex0..2 and charsperline3.",
+    "English row1 keeps space advance at index8 and charsperline16."
+  ],
+  "files": [
+    "aipm-wordmark.svg",
+    "aipm-wordmark-light.svg",
+    "aipm-wordmark.png",
+    "aipm-header-desktop.svg",
+    "aipm-header-desktop.png",
+    "aipm-header-mobile.svg",
+    "aipm-header-mobile.png",
+    "personal-title.svg",
+    "personal-title-opacity.svg",
+    "personal-title-opacity.png",
+    "personal-title-distance.png",
+    "personal-title-geometry.json",
+    "title-font-outline-data.json",
+    "personal-brand-contract.json"
+  ]
+}

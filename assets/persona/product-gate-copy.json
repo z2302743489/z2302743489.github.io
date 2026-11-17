@@ -1,0 +1,14 @@
+{
+  "font": "ProductSongtiV4",
+  "text1": "把视频里零散的线索，\n蒸馏成可以继续创作的剧本。\n「虾蝙·剧本蒸馏」，是我让 AI 走进真实工作流的一次尝试。",
+  "text2": "上传、拆剧、改本、诊断、导出。\n循着五页纸的路径，让创作从混沌走向成形。\n下一份作品，从这里开始。",
+  "fontSource": "STSongti-SC-Bold",
+  "fontDeployment": "Only the caption glyph outlines and SDF atlas; no system font file is deployed.",
+  "glyphCount": 70,
+  "atlas": {
+    "width": 1024,
+    "height": 1024,
+    "range": 8,
+    "method": "Equal RGB signed distance field compatible with the median distance text shader"
+  }
+}

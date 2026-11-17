@@ -1,0 +1,15 @@
+{
+  "font": "PortalStorySongtiV1",
+  "text1": "我使用它，但我无法理解它。",
+  "text2": "我必须亲手触摸它，感知它...",
+  "text3": "原来是这样!...",
+  "fontSource": "STSongti-SC-Bold",
+  "fontDeployment": "Only the caption glyph outlines and SDF atlas; no system font file is deployed.",
+  "glyphCount": 27,
+  "atlas": {
+    "width": 1024,
+    "height": 1024,
+    "range": 8,
+    "method": "Equal RGB signed distance field compatible with the median distance text shader"
+  }
+}

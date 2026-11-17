@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "canvas": {
+    "width": 256,
+    "height": 256,
+    "aspect": 1,
+    "paddingPixels": 24,
+    "background": "transparent",
+    "ink": "#171713"
+  },
+  "rendering": {
+    "textureChannel": "alpha",
+    "aspect": "Use aspect=1 for the square PNG plane; inkAspect describes only the contained symbol.",
+    "vectorPolicy": "Original source paths retained; no generated brand artwork; color bars and long badge labels removed."
+  },
+  "reference": "User-provided tool badge screenshot (Claude Code through DeepSeek Harness).",
+  "logos": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "src": "assets/tool-logos/claude-code.png",
+      "svg": "assets/tool-logos/claude-code.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 24,
+        "top": 24,
+        "right": 231,
+        "bottom": 231
+      },
+      "inkAspect": 1,
+      "inkPixels": 18298,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/claude.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "2d6fda79eb18ddccca35b799eeb3cece0dfabc22520ce3b10abd25668df9fa93",
+        "note": "Claude sunburst, matching the reference badge."
+      }
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "src": "assets/tool-logos/codex.png",
+      "svg": "assets/tool-logos/codex.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 25,
+        "top": 24,
+        "right": 230,
+        "bottom": 231
+      },
+      "inkAspect": 0.990385,
+      "inkPixels": 17740,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/15.15.0/icons/openai.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "2b4a04ddc2395b20d168694d3850ce2050a702c4a0cdeb4d8b31b9a970481a8c",
+        "note": "OpenAI knot, matching the reference badge rather than substituting another Codex mark."
+      }
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "src": "assets/tool-logos/python.png",
+      "svg": "assets/tool-logos/python.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 25,
+        "top": 24,
+        "right": 230,
+        "bottom": 231
+      },
+      "inkAspect": 0.990385,
+      "inkPixels": 27540,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "a90c00fd441482b4867ad5d7fa68db56aab4891f1b1e6879fe1ea3b355cf378f",
+        "note": "Python two-snake symbol."
+      }
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "src": "assets/tool-logos/typescript.png",
+      "svg": "assets/tool-logos/typescript.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 24,
+        "top": 24,
+        "right": 231,
+        "bottom": 231
+      },
+      "inkAspect": 1,
+      "inkPixels": 35798,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/typescript.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "7f023e8d1e767370306ec9437d2de5d5af97491d6208dd7799a3808a7c10a36a",
+        "note": "TypeScript TS tile; only the symbol tile is retained."
+      }
+    },
+    {
+      "id": "nextjs",
+      "name": "Next.js",
+      "src": "assets/tool-logos/nextjs.png",
+      "svg": "assets/tool-logos/nextjs.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 24,
+        "top": 24,
+        "right": 231,
+        "bottom": 231
+      },
+      "inkAspect": 1,
+      "inkPixels": 30607,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nextdotjs.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "593e14da3ddb65be4c8fa6a178f2f48a01a8bd39ea384f679cd7182b520da502",
+        "note": "Next.js circular N symbol."
+      }
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "src": "assets/tool-logos/fastapi.png",
+      "svg": "assets/tool-logos/fastapi.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 24,
+        "top": 24,
+        "right": 231,
+        "bottom": 231
+      },
+      "inkAspect": 1,
+      "inkPixels": 30335,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/fastapi.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "af0bdd5fd3f16a49e341089049418af7b02a04eefdc088b2e26c4524fa8b75d1",
+        "note": "FastAPI circular lightning symbol."
+      }
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "src": "assets/tool-logos/figma.png",
+      "svg": "assets/tool-logos/figma.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 55,
+        "top": 24,
+        "right": 200,
+        "bottom": 231
+      },
+      "inkAspect": 0.701923,
+      "inkPixels": 11865,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/figma.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "2f86fca501dfed321a62f28743f29d9dd738dac91668eac5260ab746d1ef8840",
+        "note": "Figma outlined symbol, matching the reference badge."
+      }
+    },
+    {
+      "id": "grok-bot",
+      "name": "Grok Bot",
+      "src": "assets/tool-logos/grok-bot.png",
+      "svg": "assets/tool-logos/grok-bot.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 26,
+        "top": 24,
+        "right": 229,
+        "bottom": 231
+      },
+      "inkAspect": 0.980769,
+      "inkPixels": 11539,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "693e68863eceb8dc9f72e2acd386ab9c20a10858dab2c076212f7084cb7a32fe",
+        "note": "The reference explicitly shows the X symbol; no alternative Grok symbol is substituted."
+      }
+    },
+    {
+      "id": "pi-agent",
+      "name": "PI Agent",
+      "src": "assets/tool-logos/pi-agent.png",
+      "svg": "assets/tool-logos/pi-agent.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 24,
+        "top": 24,
+        "right": 231,
+        "bottom": 231
+      },
+      "inkAspect": 1,
+      "inkPixels": 27040,
+      "source": {
+        "url": "https://pi.dev/favicon.svg",
+        "attribution": "Pi official website",
+        "license": "Brand asset from official site; no separate license declared in source SVG.",
+        "sha256": "d266b2c1d2c7bf169ca30d438963b176fba16fea6263b9ac30c8302f34ad7ce7",
+        "note": "Official Pi pixel-grid mark, visually matched to the user screenshot."
+      }
+    },
+    {
+      "id": "deepseek-harness",
+      "name": "DeepSeek Harness",
+      "src": "assets/tool-logos/deepseek-harness.png",
+      "svg": "assets/tool-logos/deepseek-harness.svg",
+      "aspect": 1,
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "left": 24,
+        "top": 51,
+        "right": 231,
+        "bottom": 204
+      },
+      "inkAspect": 1.350649,
+      "inkPixels": 16660,
+      "source": {
+        "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/deepseek.svg",
+        "attribution": "Simple Icons contributors",
+        "license": "CC0-1.0 (Simple Icons source SVG)",
+        "sha256": "7a55a0a7391d116eba7d32807d6838478f9209f6034612941e74fbb14934e2ef",
+        "note": "DeepSeek whale symbol shown by the reference; Harness label is not depicted."
+      }
+    }
+  ]
+}

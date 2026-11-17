@@ -1,0 +1,510 @@
+{
+  "version": 4,
+  "revision": "4.1",
+  "product": {
+    "name": "观戏",
+    "href": "http://127.0.0.1:7107/"
+  },
+  "textures": {
+    "theatre": "assets/product-gate-v3/theatre-source.png"
+  },
+  "papers": [
+    {
+      "id": "upload",
+      "label": "上传",
+      "src": "assets/product-gate-v3/paper-upload.png",
+      "index": 0,
+      "labelRegion": {
+        "ink": [
+          0.18559536735432502,
+          0.58,
+          0.814404632645675,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1647620340209917,
+          0.5633333333333334,
+          0.8352379659790083,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "deconstruct",
+      "label": "拆剧",
+      "src": "assets/product-gate-v3/paper-deconstruct.png",
+      "index": 1,
+      "labelRegion": {
+        "ink": [
+          0.18836712913553894,
+          0.58,
+          0.8116328708644611,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1675337958022056,
+          0.5633333333333334,
+          0.8324662041977945,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "rewrite",
+      "label": "改本",
+      "src": "assets/product-gate-v3/paper-rewrite.png",
+      "index": 2,
+      "labelRegion": {
+        "ink": [
+          0.18871453900709223,
+          0.58,
+          0.8112854609929078,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1678812056737589,
+          0.5633333333333334,
+          0.8321187943262411,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "diagnose",
+      "label": "诊断",
+      "src": "assets/product-gate-v3/paper-diagnose.png",
+      "index": 3,
+      "labelRegion": {
+        "ink": [
+          0.1869631495227996,
+          0.58,
+          0.8130368504772003,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1661298161894663,
+          0.5633333333333334,
+          0.8338701838105337,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "export",
+      "label": "导出",
+      "src": "assets/product-gate-v3/paper-export.png",
+      "index": 4,
+      "labelRegion": {
+        "ink": [
+          0.20007600143061519,
+          0.58,
+          0.7999239985693848,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.17924266809728184,
+          0.5633333333333334,
+          0.820757331902718,
+          0.84
+        ]
+      }
+    }
+  ],
+  "flights": {
+    "desktop": [
+      {
+        "id": "upload",
+        "y": 0.5788885763818137,
+        "z": 2.3,
+        "width": 0.1664777605281033,
+        "duration": 52,
+        "initialPhase": 0.06,
+        "bob": 0.01891792733273901,
+        "referenceScreenRow": 0.16
+      },
+      {
+        "id": "deconstruct",
+        "y": 0.32791074043414287,
+        "z": 2.4,
+        "width": 0.16031191754558097,
+        "duration": 61,
+        "initialPhase": 0.27,
+        "bob": 0.01821726335745238,
+        "referenceScreenRow": 0.3
+      },
+      {
+        "id": "rewrite",
+        "y": 0.09458963666369503,
+        "z": 2.5,
+        "width": 0.1541460745630586,
+        "duration": 68,
+        "initialPhase": 0.48,
+        "bob": 0.01751659938216575,
+        "referenceScreenRow": 0.44
+      },
+      {
+        "id": "diagnose",
+        "y": -0.12107473492952961,
+        "z": 2.6,
+        "width": 0.14798023158053625,
+        "duration": 56,
+        "initialPhase": 0.69,
+        "bob": 0.016815935406879118,
+        "referenceScreenRow": 0.58
+      },
+      {
+        "id": "export",
+        "y": -0.31908237434553127,
+        "z": 2.7,
+        "width": 0.1418143885980139,
+        "duration": 64,
+        "initialPhase": 0.9,
+        "bob": 0.01611527143159249,
+        "referenceScreenRow": 0.72
+      }
+    ],
+    "mobile": [
+      {
+        "id": "upload",
+        "y": -0.3287665731231611,
+        "z": 2.3,
+        "width": 0.12634598381471163,
+        "duration": 52,
+        "initialPhase": 0.06,
+        "bob": 0.012283637315319187,
+        "referenceScreenRow": 0.085
+      },
+      {
+        "id": "deconstruct",
+        "y": -0.49061058773651645,
+        "z": 2.4,
+        "width": 0.12129906421909953,
+        "duration": 61,
+        "initialPhase": 0.27,
+        "bob": 0.011792964576856899,
+        "referenceScreenRow": 0.185
+      },
+      {
+        "id": "rewrite",
+        "y": -0.640687409488175,
+        "z": 2.5,
+        "width": 0.11622050697090158,
+        "duration": 68,
+        "initialPhase": 0.48,
+        "bob": 0.01129921595550432,
+        "referenceScreenRow": 0.285
+      },
+      {
+        "id": "diagnose",
+        "y": -0.778886042879317,
+        "z": 2.6,
+        "width": 0.11111001364405555,
+        "duration": 56,
+        "initialPhase": 0.69,
+        "bob": 0.010802362437616512,
+        "referenceScreenRow": 0.385
+      },
+      {
+        "id": "export",
+        "y": -0.9050940920363999,
+        "z": 2.7,
+        "width": 0.10596728204740663,
+        "duration": 64,
+        "initialPhase": 0.9,
+        "bob": 0.010302374643497867,
+        "referenceScreenRow": 0.485
+      }
+    ]
+  },
+  "portal": {
+    "geometry": "assets/geometry/story/common/circle.bin",
+    "sourcePlane": "XZ",
+    "radius": 1,
+    "position": [
+      12.605,
+      2.956,
+      -48.23
+    ],
+    "rotationDegrees": [
+      90,
+      0,
+      17.98
+    ],
+    "scale": [
+      2.666,
+      1.221,
+      2.464
+    ],
+    "titleLocal": [
+      0,
+      2.86,
+      1
+    ],
+    "titleSize": [
+      2.64,
+      0.83
+    ],
+    "artSize": [
+      1.98,
+      1.98
+    ],
+    "enterDesktop": [
+      1.87,
+      -0.03,
+      0.82
+    ],
+    "enterMobile": [
+      0,
+      -0.72,
+      0.08
+    ],
+    "enterSize": [
+      1.42,
+      0.43
+    ],
+    "keepOriginalGeometry": true,
+    "titleRemoved": true,
+    "oldEnterPaperRemoved": true,
+    "sourceImageFullAspect": 2.3276190476190477,
+    "theatreUvSize": [
+      0.86,
+      0.39976612483261414
+    ],
+    "contained": {
+      "canvas": [
+        2048,
+        2048
+      ],
+      "image": [
+        1731,
+        743
+      ],
+      "cornersInsideRadius": 942.08
+    },
+    "stoneRemoved": true
+  },
+  "source": {
+    "font": "STSongti-SC-Bold",
+    "inputImagePath": "/var/folders/x_/vq9lc8353479_6l2x9zldfsw0000gn/T/codex-clipboard-f42746ca-a3db-4afc-baa2-27833d165728.png",
+    "inputImageSha256": "c7d8b048219ab9d839cd3c8cb9ca2f06aa5a54b4b2c97ed12ee84500fb1021dd",
+    "inputDimensions": [
+      2444,
+      1050
+    ],
+    "inputImagePreservedByteIdentical": true,
+    "noImageGeneration": true,
+    "stepsSha256": "919ae21d70eb02423d1af98caf82184c5052956dc55e67a9ced03ac376fce6dd",
+    "staticTitlePlateCreated": false,
+    "airSafety": {
+      "coordinateFrame": "original Approach.sceneRoot local",
+      "terrainMaximumZ": 1.3610743169784545,
+      "terrain": [
+        {
+          "name": "landscape",
+          "src": "assets/geometry/story/approach/landscape.bin",
+          "sha256": "8e8bf4b467eb89a8f5b38ba743eb8e20f904c1f326474af7bbd86316c7d735d4",
+          "position": [
+            0,
+            -2.732,
+            0
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "vertices": 2205,
+          "triangles": 4216,
+          "bounds": {
+            "min": [
+              -55.46521759033203,
+              -3.7736604280471804,
+              -114.93695831298828
+            ],
+            "max": [
+              76.51537322998047,
+              2.3246921234130857,
+              0.19864654541015625
+            ]
+          },
+          "maxNormalLength": 1.0000001285014142
+        },
+        {
+          "name": "steps",
+          "src": "assets/geometry/story/approach/steps.bin",
+          "sha256": "919ae21d70eb02423d1af98caf82184c5052956dc55e67a9ced03ac376fce6dd",
+          "position": [
+            0,
+            -2.732,
+            0
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "vertices": 11760,
+          "triangles": 23140,
+          "bounds": {
+            "min": [
+              -6.434177875518799,
+              -2.8759319998025896,
+              -48.52061080932617
+            ],
+            "max": [
+              14.670814514160156,
+              0.7312532596588133,
+              -0.080841064453125
+            ]
+          },
+          "maxNormalLength": 1.000000140342211
+        },
+        {
+          "name": "structure",
+          "src": "assets/geometry/story/approach/portal.bin",
+          "sha256": "b3ab43a222c6bb47f8a9d80b79e18c3381f891fe3b7ef00196fa4b561a0877b6",
+          "position": [
+            13.25,
+            0.811,
+            -50.28
+          ],
+          "rotationDegrees": [
+            0,
+            -19.32,
+            0
+          ],
+          "scale": [
+            1.4,
+            1.4,
+            1.4
+          ],
+          "vertices": 6673,
+          "triangles": 13338,
+          "bounds": {
+            "min": [
+              8.626889969867754,
+              0.44400712108612067,
+              -50.94228357462986
+            ],
+            "max": [
+              16.663375513439835,
+              13.58216413116455,
+              -46.40171085890612
+            ]
+          },
+          "maxNormalLength": 1.4000001955151749
+        },
+        {
+          "name": "stepsclose",
+          "src": "assets/geometry/story/approach/steps-close.bin",
+          "sha256": "b0f37103c31686af62ac01be3cb0c6d14d7b331c05700fe0c3999da96e490a95",
+          "position": [
+            -0.437,
+            -2.49,
+            0.138
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            0.768,
+            1
+          ],
+          "vertices": 2012,
+          "triangles": 4016,
+          "bounds": {
+            "min": [
+              -3.0393298263549804,
+              -2.5744799995422367,
+              -1.2928077096939088
+            ],
+            "max": [
+              1.002366340637207,
+              -2.0394751739501955,
+              1.3610743169784545
+            ]
+          },
+          "maxNormalLength": 0.9998355583165673
+        },
+        {
+          "name": "charshadow",
+          "src": "assets/geometry/story/approach/steps-shadow-mesh.bin",
+          "sha256": "6b145d6c44f7a0fba4d468e2269ae48174f6708958f38ce9c018f53949d5a89b",
+          "position": [
+            0,
+            -2.732,
+            0
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "vertices": 272,
+          "triangles": 455,
+          "bounds": {
+            "min": [
+              -2.8231849670410156,
+              -2.3363598949909212,
+              -6.149941444396973
+            ],
+            "max": [
+              0.8877136707305908,
+              -1.4923869438171389,
+              -3.1840312480926514
+            ]
+          },
+          "maxNormalLength": 0
+        }
+      ],
+      "groundHasPositionDeformation": false,
+      "inverseChangesOnlyClipXY": true
+    }
+  },
+  "motion": {
+    "direction": "left-to-right",
+    "continuous": true,
+    "opacity": 1,
+    "durationSeconds": [
+      45,
+      70
+    ],
+    "wrap": "entire conservatively bounded curved mesh outside the right viewport; re-entry entirely outside left",
+    "subdivisions": [
+      12,
+      16
+    ],
+    "referenceViewports": {
+      "desktop": [
+        1440,
+        900,
+        3
+      ],
+      "mobile": [
+        390,
+        844,
+        3.125
+      ]
+    },
+    "usesNativeDepthOcclusion": true,
+    "noCharacterAvoidance": true
+  }
+}

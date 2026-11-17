@@ -1,0 +1,14 @@
+{
+  "font": "WanderSongtiSC",
+  "text1": "在模型与噪声交织的旷野里，\n我以 AI 产品经理的视角，\n寻找真正值得解决的问题。",
+  "text2": "穿过技术的迷雾，以需求为坐标，以验证为步伐。\n让混沌中的可能，长成可被使用的产品。",
+  "fontSource": "STSongti-SC-Bold",
+  "fontDeployment": "Only the caption glyph outlines and SDF atlas; no system font file is deployed.",
+  "glyphCount": 61,
+  "atlas": {
+    "width": 1024,
+    "height": 1024,
+    "range": 8,
+    "method": "Equal RGB signed distance field compatible with the median distance text shader"
+  }
+}

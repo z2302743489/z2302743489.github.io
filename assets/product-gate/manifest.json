@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "product": {
+    "name": "虾蝙·剧本蒸馏",
+    "tagline": "从视频素材，到可用剧本",
+    "href": "http://127.0.0.1:7107/"
+  },
+  "textures": {
+    "title": "assets/product-gate/title.png",
+    "portal": "assets/product-gate/portal-stage.png",
+    "enter": "assets/product-gate/enter.png"
+  },
+  "papers": [
+    {
+      "id": "upload",
+      "label": "上传",
+      "src": "assets/product-gate/paper-upload-v2.png",
+      "index": 0,
+      "labelRegion": {
+        "ink": [
+          0.18559536735432502,
+          0.58,
+          0.814404632645675,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1647620340209917,
+          0.5633333333333334,
+          0.8352379659790083,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "deconstruct",
+      "label": "拆剧",
+      "src": "assets/product-gate/paper-deconstruct-v2.png",
+      "index": 1,
+      "labelRegion": {
+        "ink": [
+          0.18836712913553894,
+          0.58,
+          0.8116328708644611,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1675337958022056,
+          0.5633333333333334,
+          0.8324662041977945,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "rewrite",
+      "label": "改本",
+      "src": "assets/product-gate/paper-rewrite-v2.png",
+      "index": 2,
+      "labelRegion": {
+        "ink": [
+          0.18871453900709223,
+          0.58,
+          0.8112854609929078,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1678812056737589,
+          0.5633333333333334,
+          0.8321187943262411,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "diagnose",
+      "label": "诊断",
+      "src": "assets/product-gate/paper-diagnose-v2.png",
+      "index": 3,
+      "labelRegion": {
+        "ink": [
+          0.1869631495227996,
+          0.58,
+          0.8130368504772003,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.1661298161894663,
+          0.5633333333333334,
+          0.8338701838105337,
+          0.84
+        ]
+      }
+    },
+    {
+      "id": "export",
+      "label": "导出",
+      "src": "assets/product-gate/paper-export-v2.png",
+      "index": 4,
+      "labelRegion": {
+        "ink": [
+          0.20007600143061519,
+          0.58,
+          0.7999239985693848,
+          0.8233333333333334
+        ],
+        "effective": [
+          0.17924266809728184,
+          0.5633333333333334,
+          0.820757331902718,
+          0.84
+        ]
+      }
+    }
+  ],
+  "anchors": {
+    "desktop": [
+      {
+        "id": "upload",
+        "point": [
+          1.248984970386007,
+          -2.4821431309165556,
+          -3.25
+        ],
+        "screenX": 0.6500482666782588,
+        "screenY": 0.977112257741606,
+        "score": 0.6029871577062894,
+        "treadY": 0.24985686908344457,
+        "width": 0.48556013487363453,
+        "projectedWidth": 84
+      },
+      {
+        "id": "deconstruct",
+        "point": [
+          2.9461455689662657,
+          -2.173837276340131,
+          -5.75
+        ],
+        "screenX": 0.771627324812175,
+        "screenY": 0.8206758607825007,
+        "score": 27.21779935293788,
+        "treadY": 0.5581627236598692,
+        "width": 0.6326995696838268,
+        "projectedWidth": 84
+      },
+      {
+        "id": "rewrite",
+        "point": [
+          2.194583582211711,
+          -1.8305627918986975,
+          -9.5
+        ],
+        "screenX": 0.6500071095408255,
+        "screenY": 0.7002001184891518,
+        "score": 0.18039737568158334,
+        "treadY": 0.9014372081013027,
+        "width": 0.8534087218991153,
+        "projectedWidth": 84
+      },
+      {
+        "id": "diagnose",
+        "point": [
+          4.05723807820779,
+          -1.1196466751098635,
+          -10.75
+        ],
+        "screenX": 0.7553157777935305,
+        "screenY": 0.6127322404844983,
+        "score": 49.966586044807485,
+        "treadY": 1.6123533248901367,
+        "width": 0.9269784393042115,
+        "projectedWidth": 84
+      },
+      {
+        "id": "export",
+        "point": [
+          3.593983114261362,
+          -0.5128954937501504,
+          -18.75
+        ],
+        "screenX": 0.6499823442759538,
+        "screenY": 0.5342462459396524,
+        "score": 0.8220146153213569,
+        "treadY": 2.21910450624985,
+        "width": 1.397824630696827,
+        "projectedWidth": 84
+      }
+    ],
+    "mobile": [
+      {
+        "id": "upload",
+        "point": [
+          -1.6182803887985249,
+          -2.6533855125470893,
+          -2.375
+        ],
+        "screenX": 0.2798140956112213,
+        "screenY": 0.8273941397076059,
+        "score": 1.6809104444847887,
+        "treadY": 0.07861448745291075,
+        "width": 0.37323184741599585,
+        "projectedWidth": 70
+      },
+      {
+        "id": "deconstruct",
+        "point": [
+          -0.21227530661927557,
+          -2.4591879874731926,
+          -4
+        ],
+        "screenX": 0.7278482289098337,
+        "screenY": 0.7090263471712966,
+        "score": 1.790590746539308,
+        "treadY": 0.2728120125268076,
+        "width": 0.4705056411963638,
+        "projectedWidth": 70
+      },
+      {
+        "id": "rewrite",
+        "point": [
+          -0.9644494846978487,
+          -2.1385280976046293,
+          -7.125
+        ],
+        "screenX": 0.2804210376152377,
+        "screenY": 0.5960213027982098,
+        "score": 1.9648936893569,
+        "treadY": 0.5934719023953708,
+        "width": 0.6218434469673887,
+        "projectedWidth": 70
+      },
+      {
+        "id": "diagnose",
+        "point": [
+          0.0824610635182743,
+          -1.3346730011644323,
+          -8.5
+        ],
+        "screenX": 0.49798441899283824,
+        "screenY": 0.48099127693089566,
+        "score": 14.065345366015663,
+        "treadY": 1.3973269988355679,
+        "width": 0.6609415000744249,
+        "projectedWidth": 66
+      },
+      {
+        "id": "export",
+        "point": [
+          -0.15566407359351245,
+          -0.7959480118965605,
+          -13.125
+        ],
+        "screenX": 0.2770380903385231,
+        "screenY": 0.4180381956175867,
+        "score": 22.85344960150978,
+        "treadY": 1.9360519881034397,
+        "width": 0.9338921670203796,
+        "projectedWidth": 70
+      }
+    ]
+  },
+  "portal": {
+    "geometry": "assets/geometry/story/common/circle.bin",
+    "sourcePlane": "XZ",
+    "radius": 1,
+    "position": [
+      12.605,
+      2.956,
+      -48.23
+    ],
+    "rotationDegrees": [
+      90,
+      0,
+      17.98
+    ],
+    "scale": [
+      2.666,
+      1.221,
+      2.464
+    ],
+    "titleLocal": [
+      0,
+      2.86,
+      1
+    ],
+    "titleSize": [
+      2.64,
+      0.83
+    ],
+    "artSize": [
+      1.98,
+      1.98
+    ],
+    "enterDesktop": [
+      1.87,
+      -0.03,
+      0.82
+    ],
+    "enterMobile": [
+      0,
+      -0.72,
+      0.08
+    ],
+    "enterSize": [
+      1.42,
+      0.43
+    ]
+  },
+  "source": {
+    "font": "STSongti-SC-Bold",
+    "systemFontFileDeployed": false,
+    "stepsSha256": "919ae21d70eb02423d1af98caf82184c5052956dc55e67a9ced03ac376fce6dd",
+    "valanceSha256": "185fdd70b6262948946739abdcbfefbd150ffd77876a87b9bfaed7ff38a64a37",
+    "bookSha256": "a4eef1c987d508c532cbe8ac46f90dc97a98edaec538a9d87963b5b35b4ea9af",
+    "stepCalibration": "Actual tread triangle/z-plane intersections; neutral native camera fov35/z5, original mobile sceneRoot XYZ transforms."
+  }
+}

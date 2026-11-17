@@ -1,0 +1,137 @@
+{
+  "version": 5,
+  "source": "/Users/tw/.codex2/visualizations/2026/11/03/01a1a242-2872-79c1-8042-18ccad63b00c/aipm-logo/AIPM-portrait-shoulder-v2.png",
+  "sourceCopy": "character-study/liberty-figure-v5-ink.png",
+  "sourceSha256": "9d71f3e197e61bef3130838bf143088a0fff78d33e00b0a42e802b9362ddb997",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "sourceAlpha": "character-study/liberty-figure-v5-source-alpha.png",
+  "blackOutput": "/Users/tw/.codex2/visualizations/2026/11/03/01a1a242-2872-79c1-8042-18ccad63b00c/aipm-logo/AIPM-portrait-shoulder-v2-black.png",
+  "blackOutputSha256": "baf7c828e10934f8362be92bae41c1236448ada5f6b7f5c7b73ab6db761b17ae",
+  "blackBackground": "#000000",
+  "output": "character-study/liberty-figure-v5.png",
+  "inkToAlpha": {
+    "whiteCutoff": 250,
+    "minimumAlpha": 3,
+    "foregroundRGB": [
+      255,
+      255,
+      255
+    ],
+    "method": "Identical v4 inverse-grayscale formula. Source art is never redrawn; no new symbol, reflection, rotation or pose change."
+  },
+  "sourceInkBounds": {
+    "x0": 283,
+    "y0": 12,
+    "x1": 979,
+    "y1": 1245,
+    "visible": 157044
+  },
+  "packing": {
+    "sourceCenter": [
+      631.5,
+      629
+    ],
+    "sourceRadius": 679.7729400321846,
+    "outputCenter": [
+      627,
+      627
+    ],
+    "safeRadiusFraction": 0.43,
+    "safeRadius": 539.22,
+    "scale": 0.7902932999577252,
+    "maximumOutputInkRadius": 535.5954630128975,
+    "outputVisiblePixels": 105490
+  },
+  "claude": {
+    "alreadyInApprovedSource": true,
+    "overlaysAdded": 0,
+    "preservedNativePixels": true
+  },
+  "apple": {
+    "alreadyInApprovedSource": true,
+    "overlaysAdded": 0,
+    "preservedNativePixels": true
+  },
+  "halo": {
+    "staticBadgeCenter": [
+      268,
+      228
+    ],
+    "estimatedApprovedHeadSourceCenter": [
+      675.5,
+      543.5
+    ],
+    "mappedHeadCenter512": [
+      270.1975498097669,
+      228.41157934693032
+    ],
+    "centerDeltaPixels": 2.2357599882872172,
+    "originalLoaderCircleAssetsUnchanged": true
+  },
+  "loader": {
+    "figure": [
+      401,
+      401
+    ],
+    "badge": [
+      512,
+      512
+    ],
+    "rootLayersUnchanged": true,
+    "circleAndRadialAssetsUnchanged": true,
+    "frameRate": 60,
+    "inPoint": 0,
+    "outPoint": 240
+  },
+  "headers": {
+    "desktop": {
+      "svg": [
+        286,
+        120
+      ],
+      "png": [
+        572,
+        240
+      ]
+    },
+    "mobile": {
+      "svg": [
+        168,
+        120
+      ],
+      "png": [
+        336,
+        240
+      ]
+    },
+    "wordmarkPreserved": true,
+    "alphaForExistingBlackWhiteShader": true
+  },
+  "oldV2V3V4AndTitleFontAssetsPreserved": true,
+  "preservationBaseline": "qa/personal-brand-v5/preservation-baseline.json",
+  "unversionedIntermediatesUpdated": true,
+  "versionedOutputs": {
+    "dist/assets/persona/loader-personal-v5.json": "5304a320183d5732bb3adf6ebae72d47b7d770cd0a8e767aaa325e8b381113cf",
+    "dist/assets/persona/loader-figure-personal-v5.png": "28983cb08c401e3b24dbdf7c7d748e027825153baa5a2951814d0ba73921252d",
+    "dist/assets/persona/loader-figure-mask-v5.png": "ab2014d75b7652ecf7c6386e5233298b0fab2d7ddd10887f84ed769482624f9d",
+    "dist/assets/persona/loader-figure-backing-v5.png": "e44655157002941172274359f9332e392ba6f0ad1dc9cbb24def52a882c9b2ba",
+    "dist/assets/persona/personal-badge-v5.png": "576ee600719bc7fb32f28c4d6a9f5df9de5aeaf4898ac8b6c1ddcc1bf155bd1d",
+    "dist/assets/persona/personal-badge-v5.svg": "56fe253d1e21b9faa412e290d0dd92f4213bf570f7e8b8e65f3e2d1b0a55c1d0",
+    "dist/assets/persona/aipm-header-desktop-v5.png": "557523645cec7027737b426e223ecfaef166e535a1cd2993112652badeefbf28",
+    "dist/assets/persona/aipm-header-mobile-v5.png": "1b22c92a11e7ecc2e0d1cc8d6ae0a72c44e67feb5f9dcea7d28f8506e23f071d",
+    "dist/assets/persona/aipm-header-desktop-v5.svg": "82da6640008e4454e60fe853a92820dfa0b9ea598e1ce9ae4522f309d8646bae",
+    "dist/assets/persona/aipm-header-mobile-v5.svg": "a2ecc53cb128d35cf5906bc936fa482c674145184791aaf4290635edfddf2654"
+  },
+  "untouched": [
+    "prepare/app/index",
+    "hosting/docs/publication",
+    "all story characters and materials",
+    "flying papers",
+    "circular portals",
+    "fonts and text",
+    "original loader timing/circles"
+  ]
+}
